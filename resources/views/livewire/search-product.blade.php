@@ -33,7 +33,7 @@
                         @foreach($search_results as $result)
                             <li class="list-group-item list-group-item-action">
                                 <a wire:click="resetQuery" wire:click.prevent="selectProduct({{ $result }})" href="#">
-                                    {{ $result->product_name }} | {{ $result->product_code }}
+                                    {{ $result->product_name }} | {{ $result->product_code }} - Available Stock : {{$result->product_quantity}}
                                 </a>
                             </li>
                         @endforeach
