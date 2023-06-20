@@ -323,3 +323,32 @@
         @endcan
     </li>
 @endcan
+<li class="c-sidebar-nav-item c-sidebar-nav-dropdown {{ request()->routeIs('roles*') ? 'c-show' : '' }}">
+        <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
+            <i class="c-sidebar-nav-icon bi bi-people" style="line-height: 1;"></i> Picking
+        </a>
+        <ul class="c-sidebar-nav-dropdown-items">
+
+
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link {{ request()->routeIs('users.create') ? 'c-active' : '' }}" href="{{ route('pick.index') }}">
+                    <i class="c-sidebar-nav-icon bi bi-person-plus" style="line-height: 1;"></i> Invoices To Pick
+                </a>
+            </li>
+
+
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link {{ request()->routeIs('users.create') ? 'c-active' : '' }}" href="{{ route('sec.index') }}">
+                    <i class="c-sidebar-nav-icon bi bi-person-plus" style="line-height: 1;"></i> Security Check
+                </a>
+            </li>
+
+            
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link {{ request()->routeIs('users*') ? 'c-active' : '' }}" href="{{ route('cus.index') }}">
+                    <i class="c-sidebar-nav-icon bi bi-person-lines-fill" style="line-height: 1;"></i> Customer Receipt
+                </a>
+            </li>
+
+        </ul>
+    </li>

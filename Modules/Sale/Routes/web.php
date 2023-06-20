@@ -54,4 +54,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/sale-payments/{sale_id}/edit/{salePayment}', 'SalePaymentsController@edit')->name('sale-payments.edit');
     Route::patch('/sale-payments/update/{salePayment}', 'SalePaymentsController@update')->name('sale-payments.update');
     Route::delete('/sale-payments/destroy/{salePayment}', 'SalePaymentsController@destroy')->name('sale-payments.destroy');
+
+
+    Route::get('/inv/pick/', 'SaleController@pickIndex')->name('pick.index');
+    Route::get('/inv/pick/{sale}', 'SaleController@pickAction')->name('pick.action');
+    Route::post('/complete/pick/{sale}', 'SaleController@pickComplete')->name('pick.complete');
+
+    Route::get('/inv/cus/', 'SaleController@cusIndex')->name('cus.index');
+    Route::get('/inv/cus/{sale}', 'SaleController@cusAction')->name('cus.action');
+    Route::post('/complete/cus/{sale}', 'SaleController@cusComplete')->name('cus.complete');
+
+    Route::get('/inv/sec/', 'SaleController@secIndex')->name('sec.index');
+    Route::get('/inv/sec/{sale}', 'SaleController@secAction')->name('sec.action');
+    Route::post('/complete/sec/{sale}', 'SaleController@secComplete')->name('sec.complete');
 });

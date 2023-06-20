@@ -3,6 +3,11 @@
 namespace Modules\Sale\Http\Controllers;
 
 use Modules\Sale\DataTables\SalesDataTable;
+
+use Modules\Sale\DataTables\PickDataTable;
+use Modules\Sale\DataTables\CustomerReceiptTable;
+use Modules\Sale\DataTables\SecCheckTable;
+
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
@@ -60,6 +65,9 @@ class SaleController extends Controller
                 'payment_status' => $payment_status,
                 'payment_method' => $request->payment_method,
                 'note' => $request->note,
+                'teller_id' => \Auth::id(),
+                'picked' => 0,
+
                 'tax_amount' => Cart::instance('sale')->tax() * 100,
                 'discount_amount' => Cart::instance('sale')->discount() * 100,
             ]);
@@ -99,6 +107,16 @@ class SaleController extends Controller
                 ]);
             }
         });
+
+        // \Mail::send('inv', [ "email"=>Customer::findOrFail($request->customer_id)->customer_email], function($message) use($sale, $request, $pdf)
+        // {
+            
+        //     $message->subject("Your Lynxsolve Invoice - ".$sale->reference);
+        //     $message->to(Customer::findOrFail($request->customer_id)->customer_email);
+        //     $message->attachData($pdf->inline('sale-'. $sale->reference .'.pdf'),'sale-'. $sale->reference .'.pdf', [
+        //       'mime' => 'application/pdf',
+        //   ]);
+        // });
 
         toast('Sale Created!', 'success');
 
@@ -229,5 +247,65 @@ class SaleController extends Controller
         toast('Sale Deleted!', 'warning');
 
         return redirect()->route('sales.index');
+    }
+
+    public function pickIndex(PickDataTable $dataTable){
+        return $dataTable->render('sale::pickIndex');
+
+    }
+
+    public function cusIndex(CustomerReceiptTable $dataTable){
+        return $dataTable->render('sale::cusIndex');
+
+    }
+
+    public function secIndex(SecCheckTable $dataTable){
+        return $dataTable->render('sale::secIndex');
+
+    }
+
+    public function pickAction(Sale $sale) {
+
+        $customer = Customer::findOrFail($sale->customer_id);
+
+        return view('sale::pickAction', compact('sale', 'customer'));
+    }
+
+    public function pickComplete(Request $request, Sale $sale){
+        //dd($request);
+        $sale->picked = 1;
+        $sale->save();
+        return redirect()->route('pick.index');
+
+    }
+
+    public function cusAction(Sale $sale) {
+
+        $customer = Customer::findOrFail($sale->customer_id);
+
+        return view('sale::cusAction', compact('sale', 'customer'));
+    }
+
+    public function cusComplete(Request $request, Sale $sale){
+        //dd($request);
+        $sale->picked = 3;
+        $sale->save();
+        return redirect()->route('cus.index');
+
+    }
+
+    public function secAction(Sale $sale) {
+
+        $customer = Customer::findOrFail($sale->customer_id);
+
+        return view('sale::secAction', compact('sale', 'customer'));
+    }
+
+    public function secComplete(Request $request, Sale $sale){
+        //dd($request);
+        $sale->picked = 2;
+        $sale->save();
+        return redirect()->route('sec.index');
+
     }
 }
