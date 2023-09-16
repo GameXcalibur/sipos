@@ -339,7 +339,7 @@
 
             <li class="c-sidebar-nav-item">
                 <a class="c-sidebar-nav-link {{ request()->routeIs('users.create') ? 'c-active' : '' }}" href="{{ route('sec.index') }}">
-                    <i class="c-sidebar-nav-icon bi bi-person-plus" style="line-height: 1;"></i> Security Check
+                    <i class="c-sidebar-nav-icon bi bi-person-plus" style="line-height: 1;"></i> Shipping Check
                 </a>
             </li>
 

@@ -57,10 +57,12 @@
                                 <tr>
                                     
                                     <th class="align-middle">Product</th>
-                                    <th class="align-middle">Pack Size</th>
+                                    <th class="align-middle">Type</th>
 
                                     <th class="align-middle">Quantity</th>
-                                    <th class="align-middle">Picked?</th>
+                                    <th class="align-middle">Sim Serial</th>
+
+                                    <th class="align-middle">Received?</th>
 
 
                                 </tr>
@@ -83,6 +85,15 @@
                                         <td class="align-middle">
                                             <b style="font-size: 22px;">{{ $item->quantity }}</b>
                                         </td>
+                                        @if ($item->product->category->category_name == 'SIM CARD STOCK')
+                                        <td class="align-middle">
+                                            {{$item->sim_serial}}
+                                        </td>
+                                        @else
+                                        <td class="align-middle">
+                                            -
+                                        </td>
+                                        @endif
 
                                         <td class="align-middle">
                                             <input type="checkbox" name="{{$item->product_code}}" />
@@ -91,6 +102,15 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for='recDate'>Date Received:</label>
+                                <input type="date" name="recDate" id='recDate' />
+
+                                </div>
+
+
+                            </div>  
                         </form>
                         </div>
                         <div class="row">
@@ -134,10 +154,25 @@ if(!is_checked){
             return;
 }
 
+const dateInput = document.getElementById('recDate');
+
+if (!dateInput.value) {
+    Swal.fire({
+      title: 'NO DATE SELECTED',
+              html: "Please select the date this invoice was received!",
+              icon: 'warning',
+              showCancelButton: false,
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Okay',
+            })
+            return;
+}
+
+
               
     Swal.fire({
       title: 'CUSTOMER RECEIPT DISCLAIMER',
-              html: "Please ensure that you have received all items according to your invoice. By clicking accept, you hereby aknowledge that you have received the correct items and thus void any claim to innacurate receipt.",
+              html: "Please ensure that this invoice has been successfuly delivered.",
               icon: 'warning',
               footer: '<span style="font-size: 12px;">*Clicking the accept button constitutes a legally binding digital signature which is linked to your account and device. <b>{{date("Y-m-d H:i:s")}}</b></span>',
               showCancelButton: true,

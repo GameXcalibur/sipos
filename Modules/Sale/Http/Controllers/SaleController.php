@@ -20,6 +20,9 @@ use Modules\Sale\Entities\SalePayment;
 use Modules\Sale\Http\Requests\StoreSaleRequest;
 use Modules\Sale\Http\Requests\UpdateSaleRequest;
 
+
+use Illuminate\Http\Request;
+
 class SaleController extends Controller
 {
 
@@ -106,17 +109,22 @@ class SaleController extends Controller
                     'payment_method' => $request->payment_method
                 ]);
             }
+            $pdf = \PDF::loadView('sale::print', [
+                'sale' => $sale,
+                'customer' => Customer::findOrFail($request->customer_id),
+            ])->setPaper('a4');
+            \Mail::send('inv', [ "email"=>Customer::findOrFail($request->customer_id)->customer_email], function($message) use($sale, $request, $pdf)
+            {
+                
+                $message->subject("Your Silux Mobile Invoice - ".$sale->reference);
+                $message->to(Customer::findOrFail($request->customer_id)->customer_email);
+                $message->attachData($pdf->inline('sale-'. $sale->reference .'.pdf'),'sale-'. $sale->reference .'.pdf', [
+                  'mime' => 'application/pdf',
+              ]);
+            });
         });
 
-        // \Mail::send('inv', [ "email"=>Customer::findOrFail($request->customer_id)->customer_email], function($message) use($sale, $request, $pdf)
-        // {
-            
-        //     $message->subject("Your Lynxsolve Invoice - ".$sale->reference);
-        //     $message->to(Customer::findOrFail($request->customer_id)->customer_email);
-        //     $message->attachData($pdf->inline('sale-'. $sale->reference .'.pdf'),'sale-'. $sale->reference .'.pdf', [
-        //       'mime' => 'application/pdf',
-        //   ]);
-        // });
+
 
         toast('Sale Created!', 'success');
 
@@ -272,7 +280,12 @@ class SaleController extends Controller
     }
 
     public function pickComplete(Request $request, Sale $sale){
-        //dd($request);
+        $data = $request->all();
+        $ser = $data['simSer'];
+
+        $saleSim = SaleDetails::where('sale_id', $sale->id)->where('product_code', 'LIKE', '%SIM%')->first();
+        $saleSim->sim_serial = $ser;
+        $saleSim->save();
         $sale->picked = 1;
         $sale->save();
         return redirect()->route('pick.index');
@@ -287,7 +300,10 @@ class SaleController extends Controller
     }
 
     public function cusComplete(Request $request, Sale $sale){
-        //dd($request);
+        $data = $request->all();
+        $recDate = $data['recDate'];
+        $sale->rec_date = $recDate;
+
         $sale->picked = 3;
         $sale->save();
         return redirect()->route('cus.index');
@@ -303,6 +319,13 @@ class SaleController extends Controller
 
     public function secComplete(Request $request, Sale $sale){
         //dd($request);
+        $data = $request->all();
+        $shipDate = $data['shipDate'];
+        $tracking = $data['tracking'];
+
+        $sale->tracking = $tracking;
+        $sale->ship_date = $shipDate;
+
         $sale->picked = 2;
         $sale->save();
         return redirect()->route('sec.index');

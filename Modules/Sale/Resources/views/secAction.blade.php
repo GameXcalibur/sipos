@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Security Details')
+@section('title', 'Shipping Details')
 
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('sec.index') }}">Security Check</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('sec.index') }}">Shipping Check</a></li>
         <li class="breadcrumb-item active">Details</li>
     </ol>
 @endsection
@@ -57,10 +57,12 @@
                                 <tr>
                                     
                                     <th class="align-middle">Product</th>
-                                    <th class="align-middle">Pack Size</th>
+                                    <th class="align-middle">Type</th>
 
                                     <th class="align-middle">Quantity</th>
-                                    <th class="align-middle">Picked?</th>
+                                    <th class="align-middle">Sim Serial</th>
+
+                                    <th class="align-middle">Checked?</th>
 
 
                                 </tr>
@@ -83,7 +85,15 @@
                                         <td class="align-middle">
                                             <b style="font-size: 22px;">{{ $item->quantity }}</b>
                                         </td>
-
+                                        @if ($item->product->category->category_name == 'SIM CARD STOCK')
+                                        <td class="align-middle">
+                                            {{$item->sim_serial}}
+                                        </td>
+                                        @else
+                                        <td class="align-middle">
+                                            -
+                                        </td>
+                                        @endif
                                         <td class="align-middle">
                                             <input type="checkbox" name="{{$item->product_code}}" />
                                         </td>
@@ -91,8 +101,22 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for='shipDate'>Date Shipped:</label>
+                                <input type="date" name="shipDate" id='shipDate' />
+
+                                </div>
+                                <div class="col-md-3">
+                                <input type="text" name="tracking" id='tracking' placeholder='Tracking Number' />
+
+
+                                </div>
+
+                            </div>  
                         </form>
                         </div>
+
                         <div class="row">
                             <div class="col-md-11">
                             </div>
@@ -134,10 +158,38 @@ if(!is_checked){
             return;
 }
 
+const dateInput = document.getElementById('shipDate');
+
+if (!dateInput.value) {
+    Swal.fire({
+      title: 'NO DATE SELECTED',
+              html: "Please select the date this invoice was shipped!",
+              icon: 'warning',
+              showCancelButton: false,
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Okay',
+            })
+            return;
+}
+
+const tracking = document.getElementById('tracking');
+
+if (tracking.value == '') {
+    Swal.fire({
+      title: 'NO TRACKING NUMBER GIVEN',
+              html: "Please provide the shipment tracking number!",
+              icon: 'warning',
+              showCancelButton: false,
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Okay',
+            })
+            return;
+}
+
               
     Swal.fire({
-      title: 'SECURITY CHECK DISCLAIMER',
-              html: "Please ensure that you have checked accurately according to the invoice. By accepting this disclaimer, you hereby guarantee that the picked items are exactly in-line with what was required for the invoice.",
+      title: 'SHIPPING CHECK DISCLAIMER',
+              html: "Please ensure that you have checked accurately according to the invoice. By accepting this disclaimer, you hereby guarantee that the picked items are exactly in-line with what was required for the invoice and that the invoice has been handed over for shipping",
               icon: 'warning',
               footer: '<span style="font-size: 12px;">*Clicking the accept button constitutes a legally binding digital signature which is linked to your account and device. <b>{{date("Y-m-d H:i:s")}}</b></span>',
               showCancelButton: true,

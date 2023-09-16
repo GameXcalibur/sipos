@@ -57,8 +57,10 @@
                                 <tr>
                                     
                                     <th class="align-middle">Product</th>
-                                    <th class="align-middle">Pack Size</th>
+                                    <th class="align-middle">Type</th>
                                     <th class="align-middle">Quantity</th>
+                                    <th class="align-middle">Sim Serial</th>
+
                                     <th class="align-middle">Picked?</th>
 
 
@@ -83,6 +85,15 @@
                                         <td class="align-middle">
                                             <b style="font-size: 22px;">{{ $item->quantity }}</b>
                                         </td>
+                                        @if ($item->product->category->category_name == 'SIM CARD STOCK')
+                                        <td class="align-middle">
+                                            <input type="text" name="simSer" />
+                                        </td>
+                                        @else
+                                        <td class="align-middle">
+                                            -
+                                        </td>
+                                        @endif
 
                                         <td class="align-middle">
                                             <input type="checkbox" name="{{$item->product_code}}" />
