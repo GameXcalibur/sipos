@@ -54,6 +54,15 @@
                                 <div>
                                     Payment Status: <strong>{{ $sale->payment_status }}</strong>
                                 </div>
+                                <div>
+                                    Ship Date: <strong>{{ $sale->ship_date }}</strong>
+                                </div>
+                                <div>
+                                    Tracking: <strong>{{ $sale->tracking }}</strong>
+                                </div>
+                                <div>
+                                    Received Date: <strong>{{ $sale->rec_date }}</strong>
+                                </div>
                             </div>
 
                         </div>
