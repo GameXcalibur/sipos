@@ -55,7 +55,7 @@
                         </div>
                         <div style='width: 100% !important; text-align: center !important; margin: auto;'>
                             <div class="font-weight-bold " style='color: #fff;'><h1>Devices</h1></div>
-                            <div class="font-weight-bold " style='color: #fff;'><h2><b>{{ count($devices) }}</b></h2></div>
+                            <div class="font-weight-bold " style='color: #fff;'><h2><b>{{ $devices }}</b></h2></div>
 
                         </div>
                     </div>

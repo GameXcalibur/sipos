@@ -37,7 +37,7 @@
                         </div>
                         <div style='width: 100% !important; text-align: center !important; margin: auto;'>
                             <div class="font-weight-bold " style='color: #fff;'><h1>Master</h1></div>
-                            <div class="font-weight-bold " style='color: #fff;'><h2><b>1</b></h2></div>
+                            <div class="font-weight-bold " style='color: #fff;'><h2><b>{{$master}}</b></h2></div>
 
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         </div>
                         <div style='width: 100% !important; text-align: center !important; margin: auto;'>
                             <div class="font-weight-bold " style='color: #fff;'><h1>Devices</h1></div>
-                            <div class="font-weight-bold " style='color: #fff;'><h2><b>{{ $num_hubs }}</b></h2></div>
+                            <div class="font-weight-bold " style='color: #fff;'><h2><b>{{ $devices }}</b></h2></div>
 
                         </div>
                     </div>

@@ -480,9 +480,12 @@ class HomeController extends Controller
         $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
         // $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
         $allDevices = [];
+        $master = 0;
         foreach($hubsForAccount as $hub){
             $devices = \DB::select('SELECT * FROM devices WHERE hub_serial_no ="'.$hub->hubSerial.'"');
             $allDevices = array_merge($allDevices, $devices);
+            $master += \DB::table('devices')->where('hub_serial_no', $hub->hubSerial)->where('type', '045')->count();
+
 
         }
         foreach($allDevices as &$device){
@@ -506,6 +509,8 @@ class HomeController extends Controller
         return view('devices', [
             'devices'  => $allDevices,
             'hubs'  => $hubsForAccount,
+            'master'  => $master,
+
 
             'num_hubs'  => $num_hubs,
 
@@ -527,29 +532,19 @@ class HomeController extends Controller
         //     $allTests = array_merge($allTests, $tests);
 
         // }
-        $allDevices = [];
+        $allDevices = 0;
+        $master = 0;
+
         $hubSerials = [];
         foreach($hubsForAccount as $hub){
             $hubSerials[] = $hub->hubSerial;
-            $devices = \DB::select('SELECT * FROM devices WHERE hub_serial_no ="'.$hub->hubSerial.'"');
-            $allDevices = array_merge($allDevices, $devices);
+            $devices = \DB::table('devices')->where('hub_serial_no', $hub->hubSerial)->count();
+            $allDevices += $devices;
+            $master += \DB::table('devices')->where('hub_serial_no', $hub->hubSerial)->where('type', '045')->count();
+
 
         }
-        foreach($allDevices as &$device){
-            $lastOnline = \DB::select('SELECT * FROM lastOnline WHERE serial ="'.$device->serial_no.'"');
-            $type = \DB::select('SELECT * FROM device_types WHERE code ="'.$device->type.'"');
 
-            $device->d_area= 'Offline';
-            if(array_key_exists(0, $lastOnline)){
-                $device->d_area= $lastOnline[0]->extra;
-
-            }
-
-            if(array_key_exists(0, $type)){
-                $device->type= $type[0]->name;
-
-            }
-        }
 
         // foreach($allTests as &$test){
         //     $device = \DB::select('SELECT * FROM devices WHERE serial_no ="'.$test->deviceSerial.'"');
@@ -593,64 +588,27 @@ class HomeController extends Controller
 
         $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
        // $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
-        $lastOnlineDevs = \DB::select('SELECT * FROM lastOnline WHERE hubSerial ="'.$hubsForAccount[0]->hubSerial.'"');
-        $tests = \DB::select('SELECT * FROM TestHistory WHERE hubSerial ="'.$hubsForAccount[0]->hubSerial.'"');
+       $allDevices = 0;
+       $master = 0;
 
-        $deviceStats = [];
-        foreach($lastOnlineDevs as $lastOnlineDev){
-    
-            $deviceStats['api_response'] = false;
-            //$deviceStats['active'] = $hubForAccount->hubIsActive;
+       $hubSerials = [];
+       foreach($hubsForAccount as $hub){
+           $hubSerials[] = $hub->hubSerial;
+           $devices = \DB::table('devices')->where('hub_serial_no', $hub->hubSerial)->count();
+           $allDevices += $devices;
+            $master += \DB::table('devices')->where('hub_serial_no', $hub->hubSerial)->where('type', '045')->count();
 
-            $deviceStats[$lastOnlineDev->serial]['status'] = $lastOnlineDev->extra;
 
-
-            switch($lastOnlineDev->extra){
-                case 'Offline':
-                    if(isset($deviceStats['off']))
-                        $deviceStats['off']++;
-                    else
-                        $deviceStats['off'] = 1;
-                    break;
-                case 'Online':
-                    if(isset($deviceStats['on']))
-                        $deviceStats['on']++;
-                    else
-                        $deviceStats['on'] = 1;
-                    break;
-            }
-            if(isset($deviceStats['total']))
-                $deviceStats['total']++;
-            else
-                $deviceStats['total'] = 1;
+       }
 
 
 
-            //$deviceStats['name'] = $hubForAccount->hubName;
-
-            
-            $percentageOff = 0;
-            if(isset($deviceStats['off']))   
-                $percentageOff = $deviceStats['off']/$deviceStats['total']*100;
-            $deviceStats['percentOff'] = $percentageOff;
-            $deviceStats['status'] = 'Online';
-            $deviceStats['statusH'] = '#ccc';
-
-            if($percentageOff > 80){
-                $deviceStats['status'] = 'Offline';
-                $deviceStats['statusH'] = '#aaa';
-
-            }
-
-                
-        }
 
 
         return view('home', [
             'num_hubs'         => count($hubsForAccount),
-            'devices'          => count($lastOnlineDevs),
-            'deviceStats'          => $deviceStats,
-            'tests'          => count($tests),
+            'devices'          => $allDevices,
+            'master'          => $master,
 
 
             'sale_returns'     => $sale_returns / 100,
