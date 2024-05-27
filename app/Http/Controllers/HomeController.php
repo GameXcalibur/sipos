@@ -17,6 +17,9 @@ use Modules\SalesReturn\Entities\SaleReturn;
 
 use App\Models\User;
 
+use Modules\Product\DataTables\ProductDataTable;
+
+
 
 use Modules\SalesReturn\Entities\SaleReturnPayment;
 
@@ -515,15 +518,15 @@ class HomeController extends Controller
         ]);
     }
 
-    public function reports(){
+    public function reports(ProductDataTable $dataTable){
         $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
         // $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
-        $allTests = [];
-        foreach($hubsForAccount as $hub){
-            $tests = \DB::select('SELECT * FROM TestHistory WHERE hubSerial ="'.$hub->hubSerial.'"');
-            $allTests = array_merge($allTests, $tests);
+        // $allTests = [];
+        // foreach($hubsForAccount as $hub){
+        //     $tests = \DB::select('SELECT * FROM TestHistory WHERE hubSerial ="'.$hub->hubSerial.'"');
+        //     $allTests = array_merge($allTests, $tests);
 
-        }
+        // }
         $allDevices = [];
         foreach($hubsForAccount as $hub){
             $devices = \DB::select('SELECT * FROM devices WHERE hub_serial_no ="'.$hub->hubSerial.'"');
@@ -546,32 +549,34 @@ class HomeController extends Controller
             }
         }
 
-        foreach($allTests as &$test){
-            $device = \DB::select('SELECT * FROM devices WHERE serial_no ="'.$test->deviceSerial.'"');
+        // foreach($allTests as &$test){
+        //     $device = \DB::select('SELECT * FROM devices WHERE serial_no ="'.$test->deviceSerial.'"');
 
            
-            if(array_key_exists(0, $device)){
-                $type = \DB::select('SELECT * FROM device_types WHERE code ="'.$device[0]->type.'"');
-                $test->extra1 =  $device[0]->device_name;
+        //     if(array_key_exists(0, $device)){
+        //         $type = \DB::select('SELECT * FROM device_types WHERE code ="'.$device[0]->type.'"');
+        //         $test->extra1 =  $device[0]->device_name;
 
-                if(array_key_exists(0, $type)){
-                    $test->extra2 = $type[0]->name;
+        //         if(array_key_exists(0, $type)){
+        //             $test->extra2 = $type[0]->name;
     
-                }
-            }
+        //         }
+        //     }
 
 
-        }
+        // }
         //dd($devices);
         $num_hubs = count($hubsForAccount);
-        return view('reports', [
+
+        return $dataTable->render('reports', [
             'devices'  => $allDevices,
-            'tests'  => $allTests,
 
             'hubs'  => $hubsForAccount,
 
             'num_hubs'  => $num_hubs,
         ]);
+
+
     }
 
     public function index() {

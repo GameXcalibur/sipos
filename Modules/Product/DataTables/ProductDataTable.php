@@ -3,6 +3,9 @@
 namespace Modules\Product\DataTables;
 
 use Modules\Product\Entities\Product;
+use App\Models\Test;
+
+
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -15,32 +18,22 @@ class ProductDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables()
-            ->eloquent($query)->with('category')
+            ->eloquent($query)
             ->addColumn('action', function ($data) {
                 return view('product::products.partials.actions', compact('data'));
-            })
-            ->addColumn('product_image', function ($data) {
-                $url = $data->getFirstMediaUrl('images', 'thumb');
-                return '<img src="'.$url.'" border="0" width="50" class="img-thumbnail" align="center"/>';
-            })
-            ->addColumn('product_price', function ($data) {
-                return format_currency($data->product_price);
-            })
-            ->addColumn('product_quantity', function ($data) {
-                return $data->product_quantity . ' ' . $data->product_unit;
-            })
-            ->rawColumns(['product_image']);
+            });
     }
 
-    public function query(Product $model)
+    public function query(Test $model)
     {
-        return $model->newQuery()->with('category');
+        return $model->newQuery();
     }
 
     public function html()
     {
+        
         return $this->builder()
-                    ->setTableId('product-table')
+                    ->setTableId('test-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom("<'row'<'col-md-3'l><'col-md-5 mb-2'B><'col-md-4'f>> .
@@ -62,37 +55,25 @@ class ProductDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::computed('product_image')
-                ->title('Image')
+
+            Column::make('hubSerial')
+                ->title('Hub Serial')
                 ->className('text-center align-middle'),
 
-            Column::make('product_name')
-                ->title('Name')
+            Column::make('dateString')
+                ->title('Date')
+                ->className('text-center align-middle'),
+            Column::make('testType')
+                ->title('Type')
                 ->className('text-center align-middle'),
 
-            Column::make('product_code')
-                ->title('Code')
-                ->className('text-center align-middle'),
 
-            Column::computed('product_price')
-                ->title('Price')
-                ->className('text-center align-middle'),
-
-            Column::computed('product_quantity')
-                ->title('Quantity')
-                ->className('text-center align-middle'),
-
-            Column::make('category.category_name')
-                ->title('Category')
-                ->className('text-center align-middle'),
 
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
                 ->className('text-center align-middle'),
 
-            Column::make('created_at')
-                ->visible(false)
         ];
     }
 
@@ -103,6 +84,6 @@ class ProductDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Product_' . date('YmdHis');
+        return 'Tests_' . date('YmdHis');
     }
 }
