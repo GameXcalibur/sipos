@@ -552,14 +552,15 @@ class HomeController extends Controller
            
             if(array_key_exists(0, $device)){
                 $type = \DB::select('SELECT * FROM device_types WHERE code ="'.$device[0]->type.'"');
+                $test->extra1 =  $device[0]->device_name;
+
                 if(array_key_exists(0, $type)){
-                    $device[0]->type= $type[0]->name;
+                    $test->extra2 = $type[0]->name;
     
                 }
             }
 
 
-            $test->extra1 =  $device[0];
         }
         //dd($devices);
         $num_hubs = count($hubsForAccount);

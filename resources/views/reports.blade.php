@@ -89,7 +89,7 @@
                                     <tr>
                                         <td>{{$test->deviceSerial}}</td>
                                         <td>{{$test->testType}}</td>
-                                        <td>{{$test->extra1['device_name']}}</td>
+                                        <td>{{$test->extra1}}</td>
                                         <td>{{$test->testResult}}</td>
 
                                         <td><a href='#'>Download</a></td>
