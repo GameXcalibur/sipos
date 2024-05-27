@@ -11,13 +11,13 @@ $(document).ready(function () {
       data: {
         labels: response.sales.original.days,
         datasets: [{
-          label: 'Sales',
+          label: 'Tests Passed',
           data: response.sales.original.data,
           backgroundColor: ['#6366F1'],
           borderColor: ['#6366F1'],
           borderWidth: 1
         }, {
-          label: 'Purchases',
+          label: 'Tests Failed',
           data: response.purchases.original.data,
           backgroundColor: ['#A5B4FC'],
           borderColor: ['#A5B4FC'],
@@ -38,11 +38,57 @@ $(document).ready(function () {
     var currentMonthChart = new Chart(overviewChart, {
       type: 'doughnut',
       data: {
-        labels: ['Sales', 'Purchases', 'Expenses'],
+        labels: ['Online', 'Offline'],
         datasets: [{
-          data: [response.sales, response.purchases, response.expenses],
-          backgroundColor: ['#F59E0B', '#0284C7', '#EF4444'],
-          hoverBackgroundColor: ['#F59E0B', '#0284C7', '#EF4444']
+          data: [response.sales,  response.expenses],
+          backgroundColor: ['#33ff44',  '#EF4444'],
+          hoverBackgroundColor: ['#33ff44',  '#EF4444']
+        }]
+      }
+    });
+  });
+
+  var overviewChart1 = document.getElementById('testChart');
+  $.get('/current-month/test-data', function (response) {
+    var currentMonthChart1 = new Chart(overviewChart1, {
+      type: 'doughnut',
+      data: {
+        labels: ['Failed', 'Passed'],
+        datasets: [{
+          data: [response.failed,  response.passed],
+          backgroundColor: ['#EF4444',  '#33ff44'],
+          hoverBackgroundColor: ['#EF4444',  '#33ff44']
+        }]
+      }
+    });
+  });
+
+
+  var overviewChart2 = document.getElementById('wtestChart');
+  $.get('/current-month/test-dataw', function (response) {
+    var currentMonthChart2 = new Chart(overviewChart2, {
+      type: 'doughnut',
+      data: {
+        labels: ['Failed', 'Passed'],
+        datasets: [{
+          data: [response.failed,  response.passed],
+          backgroundColor: ['#EF4444',  '#33ff44'],
+          hoverBackgroundColor: ['#EF4444',  '#33ff44']
+        }]
+      }
+    });
+  });
+
+  var overviewChart3 = document.getElementById('mtestChart');
+  $.get('/current-month/test-datam', function (response) {
+    var currentMonthChart3 = new Chart(overviewChart3, {
+      type: 'doughnut',
+      data: {
+        labels: ['Failed', 'Passed'],
+        datasets: [{
+          data: [response.failed,  response.passed],
+          backgroundColor: ['#EF4444',  '#33ff44'],
+          hoverBackgroundColor: ['#EF4444',  '#33ff44']
         }]
       }
     });
@@ -55,13 +101,13 @@ $(document).ready(function () {
       data: {
         labels: response.months,
         datasets: [{
-          label: 'Payment Sent',
+          label: 'Offline',
           data: response.payment_sent,
           fill: false,
           borderColor: '#EA580C',
           tension: 0
         }, {
-          label: 'Payment Received',
+          label: 'Online',
           data: response.payment_received,
           fill: false,
           borderColor: '#2563EB',

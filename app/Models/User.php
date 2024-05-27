@@ -22,10 +22,9 @@ class User extends Authenticatable implements HasMedia
      * @var array
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
-        'is_active'
     ];
 
     /**
@@ -47,15 +46,15 @@ class User extends Authenticatable implements HasMedia
         'email_verified_at' => 'datetime',
     ];
 
-    protected $with = ['media'];
+    // protected $with = ['media'];
 
-    public function registerMediaCollections(): void
-    {
-        $this->addMediaCollection('avatars')
-            ->useFallbackUrl('https://www.gravatar.com/avatar/' . md5($this->attributes['email']));
-    }
+    // public function registerMediaCollections(): void
+    // {
+    //     $this->addMediaCollection('avatars')
+    //         ->useFallbackUrl('https://www.gravatar.com/avatar/' . md5($this->attributes['email']));
+    // }
 
-    public function scopeIsActive(Builder $builder) {
-        return $builder->where('is_active', 1);
-    }
+    // public function scopeIsActive(Builder $builder) {
+    //     return $builder->where('is_active', 1);
+    // }
 }

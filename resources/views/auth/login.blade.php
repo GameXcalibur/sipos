@@ -10,7 +10,7 @@
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('images/favicon.png') }}">
     <!-- CoreUI CSS -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ secure_asset(mix('css/app.css')) }}" crossorigin="anonymous">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <style>
@@ -37,7 +37,7 @@
             <div class="card-group">
                 <div class="card p-4 border-0 shadow-sm">
                     <div class="card-body">
-                        <form method="post" action="{{ url('/login') }}">
+                        <form method="post" action="{{ url('/loginsil') }}">
                             @csrf
                             <h1>Login</h1>
                             <p class="text-muted">Sign In to your account</p>

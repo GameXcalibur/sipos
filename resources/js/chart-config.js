@@ -44,21 +44,13 @@ $(document).ready(function () {
         let currentMonthChart = new Chart(overviewChart, {
             type: 'doughnut',
             data: {
-                labels: ['Sales', 'Purchases', 'Expenses'],
+                labels: ['Online', 'Offline'],
                 datasets: [{
-                    data: [response.sales, response.purchases, response.expenses],
-                    backgroundColor: [
-                        '#F59E0B',
-                        '#0284C7',
-                        '#EF4444',
-                    ],
-                    hoverBackgroundColor: [
-                        '#F59E0B',
-                        '#0284C7',
-                        '#EF4444',
-                    ],
+                  data: [response.sales,  response.expenses],
+                  backgroundColor: ['#33ff44',  '#EF4444'],
+                  hoverBackgroundColor: ['#33ff44',  '#EF4444']
                 }]
-            },
+              },
         });
     });
 
@@ -71,14 +63,14 @@ $(document).ready(function () {
                 labels: response.months,
                 datasets: [
                     {
-                        label: 'Payment Sent',
+                        label: 'Offline',
                         data: response.payment_sent,
                         fill: false,
                         borderColor: '#EA580C',
                         tension: 0
                     },
                     {
-                        label: 'Payment Received',
+                        label: 'Online',
                         data: response.payment_received,
                         fill: false,
                         borderColor: '#2563EB',
