@@ -559,7 +559,7 @@ class HomeController extends Controller
             }
 
 
-            $test->extra1 =  $device;
+            $test->extra1 =  $device[0];
         }
         //dd($devices);
         $num_hubs = count($hubsForAccount);
