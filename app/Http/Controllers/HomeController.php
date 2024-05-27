@@ -571,6 +571,8 @@ class HomeController extends Controller
             'hubs'  => $hubsForAccount,
 
             'num_hubs'  => $num_hubs,
+            'master'  => $master,
+
         ]);
 
 
