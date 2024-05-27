@@ -34,16 +34,25 @@ Route::group(['middleware' => 'auth'], function () {
         //Generate PDF
         Route::get('/test/pdf/{date}/{type}', function ($date, $type) {
             $dateSplit = explode(',', $date);
-            $test = \App\Models\Test::where('testType', $type)->where('dateString', 'LIKE', '%'.$dateSplit[0].','.$dateSplit[1].'%')->get();
-            dd($test);
+            $tests = \App\Models\Test::where('testType', $type)->where('dateString', 'LIKE', '%'.$dateSplit[0].','.$dateSplit[1].'%')->get();
+            //dd($test);
             //$customer = \Modules\People\Entities\Customer::findOrFail($sale->customer_id);
+            foreach($tests as &$test){
+                $device = \DB::select('SELECT * FROM devices WHERE serial_no ="'.$test->deviceSerial.'"');
+                if(array_key_exists(0, $device)){
+                    $test->extra1 = $device[0]->device_name;
     
+                }
+                
+            }
             $pdf = \PDF::loadView('sale::print', [
-                'sale' => $sale,
-                'customer' => $customer,
+                'tests' => $tests,
+                'date' => $date,
+                'type' => $type,
+
             ])->setPaper('a4');
     
-            return $pdf->stream('sale-'. $sale->reference .'.pdf');
+            return $pdf->stream('ProEMTest-'. $type.'-'.$date .'.pdf');
         })->name('sales.pdf');
     Route::get('/sales/pos/pdf/{id}', function ($id) {
         $sale = \Modules\Sale\Entities\Sale::findOrFail($id);
