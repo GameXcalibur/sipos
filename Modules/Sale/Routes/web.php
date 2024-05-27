@@ -53,7 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
             ])->setPaper('a4');
     
             return $pdf->stream('ProEMTest-'. $type.'-'.$date .'.pdf');
-        })->name('sales.pdf');
+        })->name('tests.pdf');
     Route::get('/sales/pos/pdf/{id}', function ($id) {
         $sale = \Modules\Sale\Entities\Sale::findOrFail($id);
 
