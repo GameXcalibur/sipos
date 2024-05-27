@@ -26,7 +26,7 @@ class ProductDataTable extends DataTable
 
     public function query(Test $model)
     {
-        return $model->newQuery()->whereIn('hubSerial', $this->hubs)->distinct('dateString');
+        return $model->whereIn('hubSerial', $this->hubs)->groupBy('dateString')->groupBy('hubSerial')->groupBy('testType')->distinct('dateString');
     }
 
     public function html()

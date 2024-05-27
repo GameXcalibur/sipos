@@ -12,7 +12,7 @@ class Test extends Model
     use HasFactory;
     protected $guarded = [];
 
-    protected $casts = [
-        'dateString' => 'datetime:Y-m-d',
-    ];
+    // protected $casts = [
+    //     'dateString' => 'date:Y-m-d',
+    // ];
 }
