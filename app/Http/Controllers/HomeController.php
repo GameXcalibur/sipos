@@ -528,7 +528,9 @@ class HomeController extends Controller
 
         // }
         $allDevices = [];
+        $hubSerials = [];
         foreach($hubsForAccount as $hub){
+            $hubSerials[] = $hub->hubSerial;
             $devices = \DB::select('SELECT * FROM devices WHERE hub_serial_no ="'.$hub->hubSerial.'"');
             $allDevices = array_merge($allDevices, $devices);
 
@@ -568,7 +570,7 @@ class HomeController extends Controller
         //dd($devices);
         $num_hubs = count($hubsForAccount);
 
-        return $dataTable->render('reports', [
+        return $dataTable->with('hubs', $hubSerials)->render('reports', [
             'devices'  => $allDevices,
 
             'hubs'  => $hubsForAccount,
