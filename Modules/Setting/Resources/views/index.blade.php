@@ -88,8 +88,8 @@
                             <div class="form-row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="company_address">Company Address Line 2 <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="company_address1" value="{{ $settings->company_address }}">
+                                        <label for="company_address1">Company Address Line 2 </label>
+                                        <input type="text" class="form-control" name="company_address1" value="{{ $settings->company_address1 }}">
                                     </div>
                                 </div>
                                 
@@ -97,8 +97,8 @@
                             <div class="form-row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="company_address">Company Address Line 3 <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="company_address2" value="{{ $settings->company_address }}">
+                                        <label for="company_address2">Company Address Line 3 </label>
+                                        <input type="text" class="form-control" name="company_address2" value="{{ $settings->company_address2 }}">
                                     </div>
                                 </div>
                                 
