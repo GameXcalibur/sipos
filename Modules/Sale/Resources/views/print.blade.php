@@ -78,7 +78,7 @@ body {
                                     </td>
 
                                     <td class="align-middle" style="background: url('{{ public_path('images/opacity.png') }}') !important; background-size: 100% !important;  background-position: center !important; background-repeat: repeat-y !important;">
-                                        {{$test->testResult }}
+                                        <strong>{{$test->testResult }}</strong>
                                     </td>
 
                                     <td class="align-middle" style="background-color: transparent !important;">
