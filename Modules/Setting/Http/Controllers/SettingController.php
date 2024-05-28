@@ -30,6 +30,10 @@ class SettingController extends Controller
             'company_phone' => $request->company_phone,
             'notification_email' => $request->notification_email,
             'company_address' => $request->company_address,
+            'company_address1' => $request->company_address1,
+            'company_address2' => $request->company_address2,
+
+
             'default_currency_id' => $request->default_currency_id,
             'default_currency_position' => $request->default_currency_position,
             'footer_text' => $request->footer_text

@@ -74,7 +74,7 @@
                             <div class="form-row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="company_address">Company Address <span class="text-danger">*</span></label>
+                                        <label for="company_address">Company Address Line 1 <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" name="company_address" value="{{ $settings->company_address }}">
                                     </div>
                                 </div>
@@ -85,7 +85,24 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="form-row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="company_address">Company Address Line 2 <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="company_address1" value="{{ $settings->company_address }}">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="form-row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="company_address">Company Address Line 3 <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="company_address2" value="{{ $settings->company_address }}">
+                                    </div>
+                                </div>
+                                
+                            </div>
                             <div class="form-group mb-0">
                                 <button type="submit" class="btn btn-primary"><i class="bi bi-check"></i> Save Changes</button>
                             </div>

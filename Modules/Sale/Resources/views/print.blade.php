@@ -38,6 +38,16 @@ body {
                             <h4 class="mb-2" style="border-bottom: 1px solid #dddddd;padding-bottom: 10px;">Company Info:</h4>
                             <div><strong>{{ settings()->company_name }}</strong></div>
                             <div>{{ settings()->company_address }}</div>
+                            @if (settings()->company_address1 != '')
+                            <br>
+                            <div>{{ settings()->company_address1 }}</div>
+                                
+                            @endif
+                            @if (settings()->company_address2 != '')
+                            <br>
+                            <div>{{ settings()->company_address2 }}</div>
+                                
+                            @endif
                             <div>Email: {{ settings()->company_email }}</div>
                             <div>Phone: {{ settings()->company_phone }}</div>
                         </div>
