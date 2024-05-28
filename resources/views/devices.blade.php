@@ -155,13 +155,13 @@
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-3">
-                        <h1>EMERGENCY_LIGHT</h1>
+                        <h1>Proem Emergency</h1>
                     </div>
 
                 </div>
                 <div class="row">
                     @foreach ($devices as $device)
-                    @if ($device->type != 'EMERGENCY_LIGHT')
+                    @if ($device->type != 'Proem Emergency')
                         @continue
                     @endif
                     <div class="col-lg-3">
@@ -251,13 +251,13 @@
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-3">
-                        <h1>EMC_LITE_UNMAINTAINED</h1>
+                        <h1>EMC Lite Non Maintained</h1>
                     </div>
 
                 </div>
                 <div class="row">
                     @foreach ($devices as $device)
-                    @if ($device->type != 'EMC_LITE_UNMAINTAINED')
+                    @if ($device->type != 'EMC Lite Non Maintained')
                         @continue
                     @endif
                     <div class="col-lg-3">
