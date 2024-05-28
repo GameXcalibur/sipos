@@ -103,6 +103,9 @@
             
         </div>
         @foreach ($types as $type)
+        @if ($type == 'USER')
+            @continue
+        @endif
         <hr>
         <div class="row mb-4">
 

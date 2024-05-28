@@ -45,13 +45,18 @@ Route::group(['middleware' => 'auth'], function () {
                 }
                 
             }
+
+            
             $pdf = \PDF::loadView('sale::print', [
                 'tests' => $tests,
                 'date' => $date,
                 'type' => $type,
 
             ])->setPaper('a4');
-    
+            $pdf->setOption('footer-html',view('header'));
+            $pdf->setOption('background',true);
+
+            //dd($pdf);
             return $pdf->stream('ProEMTest-'. $type.'-'.$date .'.pdf');
         })->name('tests.pdf');
     Route::get('/sales/pos/pdf/{id}', function ($id) {

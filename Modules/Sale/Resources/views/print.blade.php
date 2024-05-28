@@ -7,19 +7,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ProEM Report</title>
     <link rel="stylesheet" href="{{ public_path('b3/bootstrap.min.css') }}">
+    <style>
+body {
+    background: url("https://dashboard.siluxcontrol.co.uk/images/logo-dark.png") !important;
+    /* background: #000 !important; */
+
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+</style>
 </head>
-<body>
+<body >
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12">
             <div style="text-align: center;margin-bottom: 25px;">
                 <img width="180" src="{{ public_path('images/logo-dark.png') }}" alt="Logo">
                 <h4 style="margin-bottom: 20px;">
-                    <strong>ProEM Report</strong>
+                    <strong>Emergency Lighting Test Report</strong>
                 </h4>
             </div>
-            <div class="card">
-                <div class="card-body">
+            <div class="card" style="background-color: transparent !important;">
+                <div class="card-body"  style="background-color: transparent !important;">
+
                     <div class="row mb-4">
                         <div class="col-xs-6 mb-3 mb-md-0">
                             <h4 class="mb-2" style="border-bottom: 1px solid #dddddd;padding-bottom: 10px;">Company Info:</h4>
@@ -41,8 +54,9 @@
 
                     </div>
 
-                    <div class="table-responsive-sm" style="margin-top: 30px;">
-                        <table class="table table-striped">
+                    <div class="table-responsive-sm" style="margin-top: 30px; background-color: transparent !important;">
+
+                        <table class="table table-striped" style="background-color: transparent !important;" >
                             <thead>
                             <tr>
                                 <th class="align-middle">Device</th>
@@ -51,21 +65,23 @@
  
                             </tr>
                             </thead>
+                            
+    
                             <tbody>
                             @foreach($tests as $test)
-                                <tr>
-                                    <td class="align-middle">
+                                <tr style="background-color: transparent !important; background: none !important;">
+                                    <td class="align-middle" style="background-color: transparent !important;">
                                         {{ $test->extra1 }} <br>
                                         <span class="badge badge-success">
                                                 <strong>{{ $test->deviceSerial }}</strong>
                                             </span>
                                     </td>
 
-                                    <td class="align-middle">
+                                    <td class="align-middle" style="background: url('{{ public_path('images/opacity.png') }}') !important; background-size: 100% !important;  background-position: center !important; background-repeat: repeat-y !important;">
                                         {{$test->testResult }}
                                     </td>
 
-                                    <td class="align-middle">
+                                    <td class="align-middle" style="background-color: transparent !important;">
                                         -
                                     </td>
 
@@ -75,17 +91,7 @@
                         </table>
                     </div>
                     
-                    <div class="row" style="margin-top: 25px;">
-                    <div class="col-xs-12">
-                            <p style="font-style: italic;text-align: center">The SILUX CONTROL ProEM system not only meets the requirements of the latest BS 5266-1-2016 standard
-but also ensures all compliance testing is carried out in accordance with BS EN 50172:2004 and BS 5266-8:2004 and BS 5266-1:2016
-The PRO-EM is updated every hour with status information which can be viewed at any time
-Weekly Test: Flash Test 1 Minute; Monthly Test: 30 Minute; Bi-Annual Test: 1.5 hours; Annual Test: 3 hours</p>
-                        </div>
-                        <div class="col-xs-12">
-                            <p style="font-style: italic;text-align: center">{{ settings()->company_name }} &copy; {{ date('Y') }}.</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
