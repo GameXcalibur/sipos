@@ -16,7 +16,6 @@ class SettingController extends Controller
 {
 
     public function index() {
-        abort_if(Gate::denies('access_settings'), 403);
 
         $settings = Setting::firstOrFail();
 
