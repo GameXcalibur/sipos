@@ -203,13 +203,13 @@
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-3">
-                        <h1>EMC_LITE_MAINTAINED</h1>
+                        <h1>EMC Lite Maintained</h1>
                     </div>
 
                 </div>
                 <div class="row">
                     @foreach ($devices as $device)
-                    @if ($device->type != 'EMC_LITE_MAINTAINED')
+                    @if ($device->type != 'EMC Lite Maintained')
                         @continue
                     @endif
                     <div class="col-lg-3">
@@ -299,13 +299,13 @@
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-3">
-                        <h1>LIPO_EMC_LIGHT</h1>
+                        <h1>Proem EMC</h1>
                     </div>
 
                 </div>
                 <div class="row">
                     @foreach ($devices as $device)
-                    @if ($device->type != 'LIPO_EMC_LIGHT')
+                    @if ($device->type != 'Proem EMC')
                         @continue
                     @endif
                     <div class="col-lg-3">
@@ -348,13 +348,13 @@
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-3">
-                        <h1>LIPO_EMC_LITE_MAIN T</h1>
+                        <h1>Bulkhead Maintained</h1>
                     </div>
 
                 </div>
                 <div class="row">
                     @foreach ($devices as $device)
-                    @if ($device->type != 'LIPO_EMC_LITE_MAIN T')
+                    @if ($device->type != 'Bulkhead Maintained')
                         @continue
                     @endif
                     <div class="col-lg-3">
@@ -399,13 +399,13 @@
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-3">
-                        <h1>LIPO_EMC_LITE_UNMAINT</h1>
+                        <h1>Bulkhead Non Maintained</h1>
                     </div>
 
                 </div>
                 <div class="row">
                     @foreach ($devices as $device)
-                    @if ($device->type != 'LIPO_EMC_LITE_UNMAINT')
+                    @if ($device->type != 'Bulkhead Non Maintained')
                         @continue
                     @endif
                     <div class="col-lg-3">
