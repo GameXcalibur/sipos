@@ -19,11 +19,8 @@
         <i class="c-sidebar-nav-icon bi bi-printer" style="line-height: 1;"></i> Test Reports
     </a>
 </li>
-
-<ul class="c-sidebar-nav-dropdown-items">
-            <li class="c-sidebar-nav-item">
+<li class="c-sidebar-nav-item">
                 <a class="c-sidebar-nav-link {{ request()->routeIs('settings*') ? 'c-active' : '' }}" href="{{ route('settings.index') }}">
                     <i class="c-sidebar-nav-icon bi bi-sliders" style="line-height: 1;"></i> System Settings
                 </a>
             </li>
-        </ul>
