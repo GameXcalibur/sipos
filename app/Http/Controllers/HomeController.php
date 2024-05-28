@@ -480,6 +480,7 @@ class HomeController extends Controller
         $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
         // $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
         $allDevices = [];
+        $deviceTypes = [];
         $master = 0;
         foreach($hubsForAccount as $hub){
             $devices = \DB::select('SELECT * FROM devices WHERE hub_serial_no ="'.$hub->hubSerial.'"');
@@ -499,6 +500,7 @@ class HomeController extends Controller
             }
 
             if(array_key_exists(0, $type)){
+                $deviceTypes[$device->type] = $type[0]->name;
                 $device->type= $type[0]->name;
 
             }
@@ -510,6 +512,8 @@ class HomeController extends Controller
             'devices'  => $allDevices,
             'hubs'  => $hubsForAccount,
             'master'  => $master,
+            'types'  => $deviceTypes,
+
 
 
             'num_hubs'  => $num_hubs,
