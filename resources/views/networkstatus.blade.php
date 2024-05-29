@@ -147,7 +147,7 @@
 
                                 </div>
                                 <div class="p-2 mfe-3 align-items-center justify-content-center  bg-gradient-default rounded-left rounded-right" style='width: 5vmax''>
-                                    <img src="{{ $device->registered }}" class="" style="width: 40%;" alt="" />
+                                    <img src="{{ $device->registered }}" class="" style="width: 50%;" alt="" />
                                     <div class="font-weight-bold " >{{$device->userExceptions}}</div>
 
 
