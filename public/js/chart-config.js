@@ -56,8 +56,8 @@ $(document).ready(function () {
         labels: ['Failed', 'Passed'],
         datasets: [{
           data: [response.failed,  response.passed],
-          backgroundColor: ['#EF4444',  '#33ff44'],
-          hoverBackgroundColor: ['#EF4444',  '#33ff44']
+          backgroundColor: ['#EF4444',  '#2eb85c'],
+          hoverBackgroundColor: ['#EF4444',  '#2eb85c']
         }]
       }
     });
@@ -72,8 +72,8 @@ $(document).ready(function () {
         labels: ['Failed', 'Passed'],
         datasets: [{
           data: [response.failed,  response.passed],
-          backgroundColor: ['#EF4444',  '#33ff44'],
-          hoverBackgroundColor: ['#EF4444',  '#33ff44']
+          backgroundColor: ['#EF4444',  '#2eb85c'],
+          hoverBackgroundColor: ['#EF4444',  '#2eb85c']
         }]
       }
     });
@@ -87,8 +87,39 @@ $(document).ready(function () {
         labels: ['Failed', 'Passed'],
         datasets: [{
           data: [response.failed,  response.passed],
-          backgroundColor: ['#EF4444',  '#33ff44'],
-          hoverBackgroundColor: ['#EF4444',  '#33ff44']
+          backgroundColor: ['#EF4444',  '#2eb85c'],
+          hoverBackgroundColor: ['#EF4444',  '#2eb85c']
+        }]
+      }
+    });
+  });
+
+  var overviewChart4 = document.getElementById('bitestChart');
+  $.get('/current-month/test-datam', function (response) {
+    var currentMonthChart4 = new Chart(overviewChart4, {
+      type: 'doughnut',
+      data: {
+        labels: ['Failed', 'Passed'],
+        datasets: [{
+          data: [response.failed,  response.passed],
+          backgroundColor: ['#EF4444',  '#2eb85c'],
+          hoverBackgroundColor: ['#EF4444',  '#2eb85c']
+        }]
+      }
+    });
+  });
+
+
+  var overviewChart5 = document.getElementById('antestChart');
+  $.get('/current-month/test-datam', function (response) {
+    var currentMonthChart5 = new Chart(overviewChart5, {
+      type: 'doughnut',
+      data: {
+        labels: ['Failed', 'Passed'],
+        datasets: [{
+          data: [response.failed,  response.passed],
+          backgroundColor: ['#EF4444',  '#2eb85c'],
+          hoverBackgroundColor: ['#EF4444',  '#2eb85c']
         }]
       }
     });

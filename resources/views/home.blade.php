@@ -110,7 +110,35 @@
     </div>
 </div>
 </div>
+<div class="row mb-4">
 
+
+<div class="col-lg-6">
+    <div class="card border-0 shadow-sm h-100">
+        <div class="card-header">
+            Bi-Annual Tests Run
+        </div>
+        <div class="card-body d-flex justify-content-center">
+            <div class="chart-container" style="position: relative; height:auto; width:280px">
+                <canvas id="bitestChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-6">
+    <div class="card border-0 shadow-sm h-100">
+        <div class="card-header">
+            Annual Tests Run
+        </div>
+        <div class="card-body d-flex justify-content-center">
+            <div class="chart-container" style="position: relative; height:auto; width:280px">
+                <canvas id="antestChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
         <!-- <div class="row">
             <div class="col-lg-12">
                 <div class="card border-0 shadow-sm">
