@@ -558,35 +558,35 @@ class HomeController extends Controller
                         break;
                       case 1:
                         $devPic =  '/images/battery/30AC.png';
-                        $devStat =  '30% (On AC)';
+                        $devStat =  '30%';
                         break;
                       case 2:
                         $devPic =  '/images/battery/40AC.png';
-                        $devStat =  '40% (On AC)';
+                        $devStat =  '40%';
                         break;
                       case 3:
                         $devPic =  '/images/battery/50AC.png';
-                        $devStat =  '50% (On AC)';
+                        $devStat =  '50%';
                         break;
                       case 4:
                         $devPic =  '/images/battery/60AC.png';
-                        $devStat =  '60% (On AC)';
+                        $devStat =  '60%';
                         break;
                       case 5:
                         $devPic =  '/images/battery/70AC.png';
-                        $devStat =  '70% (On AC)';
+                        $devStat =  '70%';
                         break;
                       case 6:
                         $devPic =  '/images/battery/80AC.png';
-                        $devStat =  '80% (On AC)';
+                        $devStat =  '80%';
                         break;
                       case 7:
                         $devPic =  '/images/battery/90AC.png';
-                        $devStat =  '90% (On AC)';
+                        $devStat =  '90%';
                         break;
                       case 8:
                         $devPic =  '/images/battery/100AC.png';
-                        $devStat =  '100% (On AC)';
+                        $devStat =  '100%';
                         break;
                       default:
                         $devPic =  '/images/battery/Faulty.png';
@@ -601,35 +601,35 @@ class HomeController extends Controller
                         break;
                       case 1:
                         $devPic =  '/images/battery/30B.png';
-                        $devStat =  '30% (On Battery)';
+                        $devStat =  '30%';
                         break;
                       case 2:
                         $devPic =  '/images/battery/40B.png';
-                        $devStat =  '40% (On Battery)';
+                        $devStat =  '40%';
                         break;
                       case 3:
                         $devPic =  '/images/battery/50B.png';
-                        $devStat =  '50% (On Battery)';
+                        $devStat =  '50%';
                         break;
                       case 4:
                         $devPic =  '/images/battery/60B.png';
-                        $devStat =  '60% (On Battery)';
+                        $devStat =  '60%';
                         break;
                       case 5:
                         $devPic =  '/images/battery/70B.png';
-                        $devStat =  '70% (On Battery)';
+                        $devStat =  '70%';
                         break;
                       case 6:
                         $devPic =  '/images/battery/80B.png';
-                        $devStat =  '80% (On Battery)';
+                        $devStat =  '80%';
                         break;
                       case 7:
                         $devPic =  '/images/battery/90B.png';
-                        $devStat =  '90% (On Battery)';
+                        $devStat =  '90%';
                         break;
                       case 8:
                         $devPic =  '/images/battery/100B.png';
-                        $devStat =  '100% (On Battery)';
+                        $devStat =  '100%';
                         break;
                       default:
                         $devPic =  '/images/battery/Faulty.png';
