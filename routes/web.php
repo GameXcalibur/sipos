@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/devices/list', 'HomeController@devices')
         ->name('devices.list');
 
+        Route::get('/networkstatus/list', 'HomeController@networkstatus')
+        ->name('network.list');
 
 
     Route::post('/devices', [App\Http\Controllers\HomeController::class, 'getDevices'])->name('devices.get')->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);

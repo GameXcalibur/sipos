@@ -521,6 +521,149 @@ class HomeController extends Controller
         ]);
     }
 
+
+    public function networkstatus(){
+        $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
+        // $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
+        $allDevices = [];
+        $deviceTypes = [];
+        $master = 0;
+        foreach($hubsForAccount as $hub){
+            $devices = \DB::select('SELECT * FROM devices WHERE hub_serial_no ="'.$hub->hubSerial.'"');
+            $allDevices = array_merge($allDevices, $devices);
+            $master += \DB::table('devices')->where('hub_serial_no', $hub->hubSerial)->where('type', '045')->count();
+
+
+        }
+        foreach($allDevices as &$device){
+
+            $lastOnline = \DB::select('SELECT * FROM lastOnline WHERE serial ="'.$device->serial_no.'"');
+            $type = \DB::select('SELECT * FROM device_types WHERE code ="'.$device->type.'"');
+
+            $device->d_area= 'Offline';
+            if(array_key_exists(0, $lastOnline)){
+                $v1 = (int)$lastOnline[0]->Val1;
+                $state1Bat = $v1 % 10;
+                $state1Gen = intval($v1 / 10);
+                $device->d_area= $lastOnline[0]->extra;
+
+                $devPic = '';
+                $devStat = '';
+
+                if ($state1Gen == 0 || $state1Gen == 4) {
+                    switch ($state1Bat) {
+                      case 0:
+                        $devPic = '/images/battery/Faulty.png';
+                        $devStat = 'Faulty';
+                        break;
+                      case 1:
+                        $devPic =  '/images/battery/30AC.png';
+                        $devStat =  '30% (On AC)';
+                        break;
+                      case 2:
+                        $devPic =  '/images/battery/40AC.png';
+                        $devStat =  '40% (On AC)';
+                        break;
+                      case 3:
+                        $devPic =  '/images/battery/50AC.png';
+                        $devStat =  '50% (On AC)';
+                        break;
+                      case 4:
+                        $devPic =  '/images/battery/60AC.png';
+                        $devStat =  '60% (On AC)';
+                        break;
+                      case 5:
+                        $devPic =  '/images/battery/70AC.png';
+                        $devStat =  '70% (On AC)';
+                        break;
+                      case 6:
+                        $devPic =  '/images/battery/80AC.png';
+                        $devStat =  '80% (On AC)';
+                        break;
+                      case 7:
+                        $devPic =  '/images/battery/90AC.png';
+                        $devStat =  '90% (On AC)';
+                        break;
+                      case 8:
+                        $devPic =  '/images/battery/100AC.png';
+                        $devStat =  '100% (On AC)';
+                        break;
+                      default:
+                        $devPic =  '/images/battery/Faulty.png';
+                        $devStat =  'Faulty';
+                        break;
+                    }
+                  } else {
+                    switch ($state1Bat) {
+                      case 0:
+                        $devPic =  '/images/battery/Faulty.png';
+                        $devStat =  'Faulty';
+                        break;
+                      case 1:
+                        $devPic =  '/images/battery/30B.png';
+                        $devStat =  '30% (On Battery)';
+                        break;
+                      case 2:
+                        $devPic =  '/images/battery/40B.png';
+                        $devStat =  '40% (On Battery)';
+                        break;
+                      case 3:
+                        $devPic =  '/images/battery/50B.png';
+                        $devStat =  '50% (On Battery)';
+                        break;
+                      case 4:
+                        $devPic =  '/images/battery/60B.png';
+                        $devStat =  '60% (On Battery)';
+                        break;
+                      case 5:
+                        $devPic =  '/images/battery/70B.png';
+                        $devStat =  '70% (On Battery)';
+                        break;
+                      case 6:
+                        $devPic =  '/images/battery/80B.png';
+                        $devStat =  '80% (On Battery)';
+                        break;
+                      case 7:
+                        $devPic =  '/images/battery/90B.png';
+                        $devStat =  '90% (On Battery)';
+                        break;
+                      case 8:
+                        $devPic =  '/images/battery/100B.png';
+                        $devStat =  '100% (On Battery)';
+                        break;
+                      default:
+                        $devPic =  '/images/battery/Faulty.png';
+                        $devStat =  'Faulty';
+                        break;
+                    }
+                  }
+                  $device->registered = $devPic;
+                  $device->userExceptions = $devStat;
+
+
+            }
+
+            if(array_key_exists(0, $type)){
+                $deviceTypes[$device->type] = $type[0]->name;
+                $device->type= $type[0]->name;
+
+            }
+        }
+        //dd($devices);
+        $num_hubs = count($hubsForAccount);
+
+        return view('networkstatus', [
+            'devices'  => $allDevices,
+            'hubs'  => $hubsForAccount,
+            'master'  => $master,
+            'types'  => $deviceTypes,
+
+
+
+            'num_hubs'  => $num_hubs,
+
+        ]);
+    }
     public function settings(){
 
         return view('settings', [
