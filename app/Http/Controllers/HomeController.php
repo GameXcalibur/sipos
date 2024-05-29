@@ -1341,6 +1341,42 @@ class HomeController extends Controller
         ]);
     }
 
+    public function testChartbi() {
+        abort_if(!request()->ajax(), 404);
+
+        $currentMonthSales = 10;
+        $currentMonthPurchases = 10;
+        $currentMonthExpenses = 10;
+        $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
+
+
+        $testsPassed = \DB::select('SELECT * FROM TestHistory WHERE hubSerial ="'.$hubsForAccount[0]->hubSerial.'" AND testResult = "Passed" AND testType = "Bi-Annual" ORDER BY STR_TO_DATE(dateString, "%d-%m-%Y") DESC');
+        $testsFailed = \DB::select('SELECT * FROM TestHistory WHERE hubSerial ="'.$hubsForAccount[0]->hubSerial.'" AND testResult = "Failed" AND testType = "Bi-Annual" ORDER BY STR_TO_DATE(dateString, "%d-%m-%Y") DESC');
+
+        return response()->json([
+            'passed'     => count($testsPassed),
+            'failed'     => count($testsFailed),
+        ]);
+    }
+
+    public function testChartan() {
+        abort_if(!request()->ajax(), 404);
+
+        $currentMonthSales = 10;
+        $currentMonthPurchases = 10;
+        $currentMonthExpenses = 10;
+        $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
+
+
+        $testsPassed = \DB::select('SELECT * FROM TestHistory WHERE hubSerial ="'.$hubsForAccount[0]->hubSerial.'" AND testResult = "Passed" AND testType = "Annual" ORDER BY STR_TO_DATE(dateString, "%d-%m-%Y") DESC');
+        $testsFailed = \DB::select('SELECT * FROM TestHistory WHERE hubSerial ="'.$hubsForAccount[0]->hubSerial.'" AND testResult = "Failed" AND testType = "Annual" ORDER BY STR_TO_DATE(dateString, "%d-%m-%Y") DESC');
+
+        return response()->json([
+            'passed'     => count($testsPassed),
+            'failed'     => count($testsFailed),
+        ]);
+    }
+
 
 
     public function currentMonthChart() {

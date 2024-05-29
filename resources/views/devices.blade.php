@@ -150,23 +150,23 @@
 
                                             @break
 
-                                        @case('TWIN_SPOT_MAINT')
-                                        @case('TWIN_SPOT_UNMAINT')
+                                        @case('Twin Spot Maintained')
+                                        @case('Twin Spot Non Maintained')
 
 
                                             <img src="{{ asset('images') }}/Twin Spot Icon.png" class="" style="width: 100%;" alt="" />
 
                                             @break
-                                        @case('EXIT_BOX_MAINT')
-                                        @case('EXIT_BOX_UNMAINT')
+                                        @case('Exit Box Maintained')
+                                        @case('Exit Box Non Maintained')
 
 
                                             <img src="{{ asset('images') }}/Exit Light Icon.png" class="" style="width: 100%;" alt="" />
 
                                             @break
 
-                                        @case('EXIT_HANGING_UNMAINT')
-                                        @case('EXIT_HANGING_MAINT')
+                                        @case('Hanging Exit Sign Maintained')
+                                        @case('Hanging Exit Sign Non Maintained')
 
 
                                             <img src="{{ asset('images') }}/Hanging Exit Light Icon.png" class="" style="width: 100%;" alt="" />

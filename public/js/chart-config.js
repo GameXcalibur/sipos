@@ -95,7 +95,7 @@ $(document).ready(function () {
   });
 
   var overviewChart4 = document.getElementById('bitestChart');
-  $.get('/current-month/test-datam', function (response) {
+  $.get('/current-month/test-databi', function (response) {
     var currentMonthChart4 = new Chart(overviewChart4, {
       type: 'doughnut',
       data: {
@@ -111,7 +111,7 @@ $(document).ready(function () {
 
 
   var overviewChart5 = document.getElementById('antestChart');
-  $.get('/current-month/test-datam', function (response) {
+  $.get('/current-month/test-dataan', function (response) {
     var currentMonthChart5 = new Chart(overviewChart5, {
       type: 'doughnut',
       data: {

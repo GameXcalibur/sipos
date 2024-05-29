@@ -57,6 +57,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/current-month/test-datam', 'HomeController@testChartm')
         ->name('current-month.testm');
 
+        Route::get('/current-month/test-databi', 'HomeController@testChartbi')
+        ->name('current-month.testbi');
+
+        Route::get('/current-month/test-dataan', 'HomeController@testChartan')
+        ->name('current-month.testan');
+
     Route::get('/payment-flow/chart-data', 'HomeController@paymentChart')
         ->name('payment-flow.chart');
 });
