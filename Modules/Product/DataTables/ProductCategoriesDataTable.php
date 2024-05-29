@@ -3,6 +3,8 @@
 namespace Modules\Product\DataTables;
 
 use Modules\Product\Entities\Category;
+use App\Models\Test;
+
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -14,19 +16,16 @@ class ProductCategoriesDataTable extends DataTable
 
     public function dataTable($query) {
         return datatables()
-            ->eloquent($query)
-            ->addColumn('action', function ($data) {
-                return view('product::categories.partials.actions', compact('data'));
-            });
+            ->eloquent($query);
     }
 
-    public function query(Category $model) {
-        return $model->newQuery()->withCount('products');
+    public function query(Test $model) {
+        return $model->whereIn('hubSerial', $this->hubs);
     }
 
     public function html() {
         return $this->builder()
-            ->setTableId('product_categories-table')
+            ->setTableId('test-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom("<'row'<'col-md-3'l><'col-md-5 mb-2'B><'col-md-4'f>> .
@@ -47,26 +46,28 @@ class ProductCategoriesDataTable extends DataTable
 
     protected function getColumns() {
         return [
-            Column::make('category_code')
-                ->addClass('text-center'),
+            Column::make('hubSerial')
+                ->title('Hub Serial')
+                ->className('text-center align-middle'),
+            Column::make('deviceSerial')
+                ->title('Device Serial')
+                ->className('text-center align-middle'),
 
-            Column::make('category_name')
-                ->addClass('text-center'),
+            Column::make('dateString')
+                ->title('Date')
+                ->className('text-center align-middle'),
+            Column::make('testType')
+                ->title('Type')
+                ->className('text-center align-middle'),
+            Column::make('testResult')
+                ->title('Result')
+                ->className('text-center align-middle'),
 
-            Column::make('products_count')
-                ->addClass('text-center'),
 
-            Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
-                ->addClass('text-center'),
-
-            Column::make('created_at')
-                ->visible(false)
         ];
     }
 
     protected function filename() {
-        return 'ProductCategories_' . date('YmdHis');
+        return 'DeviceTests_' . date('YmdHis');
     }
 }

@@ -18,6 +18,8 @@ use Modules\SalesReturn\Entities\SaleReturn;
 use App\Models\User;
 
 use Modules\Product\DataTables\ProductDataTable;
+use Modules\Product\DataTables\ProductCategoriesDataTable;
+
 
 
 
@@ -668,6 +670,61 @@ class HomeController extends Controller
 
         return view('settings', [
         ]);
+    }
+
+    public function device_reports(ProductCategoriesDataTable $dataTable){
+        $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
+        // $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
+        // $allTests = [];
+        // foreach($hubsForAccount as $hub){
+        //     $tests = \DB::select('SELECT * FROM TestHistory WHERE hubSerial ="'.$hub->hubSerial.'"');
+        //     $allTests = array_merge($allTests, $tests);
+
+        // }
+        $allDevices = 0;
+        $master = 0;
+
+        $hubSerials = [];
+        foreach($hubsForAccount as $hub){
+            $hubSerials[] = $hub->hubSerial;
+            $devices = \DB::table('devices')->where('hub_serial_no', $hub->hubSerial)->count();
+            $allDevices += $devices;
+            $master += \DB::table('devices')->where('hub_serial_no', $hub->hubSerial)->where('type', '045')->count();
+
+
+        }
+
+
+        // foreach($allTests as &$test){
+        //     $device = \DB::select('SELECT * FROM devices WHERE serial_no ="'.$test->deviceSerial.'"');
+
+           
+        //     if(array_key_exists(0, $device)){
+        //         $type = \DB::select('SELECT * FROM device_types WHERE code ="'.$device[0]->type.'"');
+        //         $test->extra1 =  $device[0]->device_name;
+
+        //         if(array_key_exists(0, $type)){
+        //             $test->extra2 = $type[0]->name;
+    
+        //         }
+        //     }
+
+
+        // }
+        //dd($devices);
+        $num_hubs = count($hubsForAccount);
+
+        return $dataTable->with('hubs', $hubSerials)->render('device_reports', [
+            'devices'  => $allDevices,
+
+            'hubs'  => $hubsForAccount,
+
+            'num_hubs'  => $num_hubs,
+            'master'  => $master,
+
+        ]);
+
+
     }
 
     public function reports(ProductDataTable $dataTable){

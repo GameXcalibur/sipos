@@ -29,7 +29,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/settings/set', 'HomeController@settings')
         ->name('settings.set');
-
+        Route::get('/device_reports', 'HomeController@device_reports')
+        ->name('devices.reports');
     Route::get('/devices/list', 'HomeController@devices')
         ->name('devices.list');
 

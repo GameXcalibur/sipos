@@ -17,8 +17,8 @@
     </a>
 </li>
 
-<li class="c-sidebar-nav-item {{ request()->routeIs('home') ? 'c-active' : '' }}">
-    <a class="c-sidebar-nav-link" href="/reports">
+<li class="c-sidebar-nav-item {{ request()->routeIs('devices.reports') ? 'c-active' : '' }}">
+    <a class="c-sidebar-nav-link" href="{{ route('devices.reports') }}">
         <i class="c-sidebar-nav-icon bi bi-printer" style="line-height: 1;"></i> Devices Test Report
 
     </a>

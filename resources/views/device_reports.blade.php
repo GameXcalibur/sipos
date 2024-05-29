@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Test Reports')
+@section('title', 'Device Reports')
 @section('third_party_stylesheets')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
 @endsection
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
-        <li class="breadcrumb-item active">Test Reports</li>
+        <li class="breadcrumb-item active">Device Reports</li>
     </ol>
 @endsection
 
@@ -91,7 +91,7 @@
     <div class="col-lg-12">
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-header">
-                        All Reports Available
+                        Device Reports
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
