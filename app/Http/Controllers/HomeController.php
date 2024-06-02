@@ -549,12 +549,13 @@ class HomeController extends Controller
                 $state1Gen = intval($v1 / 10);
                 $device->d_area= $lastOnline[0]->extra;
 
-                $devPic =  '/images/battery/100AC.png';
-                $devStat =  '-';
+                $devPic = '';
+                $devStat = '';
                 if(array_key_exists(0, $type)){
                     $deviceTypes[$device->type] = $type[0]->name;
                     $device->type= $type[0]->name;
-
+                    $devPic =  '/images/battery/100AC.png';
+                    $devStat =  '-';
                     if($device->type != 'Proem VCM100'){
 
                     if ($state1Gen == 0 || $state1Gen == 4) {
@@ -644,9 +645,10 @@ class HomeController extends Controller
                             break;
                         }
                       }
-                      $device->registered = $devPic;
-                      $device->userExceptions = $devStat;
+
                     }
+                    $device->registered = $devPic;
+                    $device->userExceptions = $devStat;
 
     
                 }
