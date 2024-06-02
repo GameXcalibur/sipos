@@ -551,105 +551,112 @@ class HomeController extends Controller
 
                 $devPic = '';
                 $devStat = '';
+                if(array_key_exists(0, $type)){
+                    $deviceTypes[$device->type] = $type[0]->name;
+                    $device->type= $type[0]->name;
+                    $devPic =  '/images/battery/100AC.png';
+                    $devStat =  '-';
+                    if($device->type != 'Proem VCM100'){
 
-                if ($state1Gen == 0 || $state1Gen == 4) {
-                    switch ($state1Bat) {
-                      case 0:
-                        $devPic = '/images/battery/Faulty.png';
-                        $devStat = 'Faulty';
-                        break;
-                      case 1:
-                        $devPic =  '/images/battery/30AC.png';
-                        $devStat =  '30%';
-                        break;
-                      case 2:
-                        $devPic =  '/images/battery/40AC.png';
-                        $devStat =  '40%';
-                        break;
-                      case 3:
-                        $devPic =  '/images/battery/50AC.png';
-                        $devStat =  '50%';
-                        break;
-                      case 4:
-                        $devPic =  '/images/battery/60AC.png';
-                        $devStat =  '60%';
-                        break;
-                      case 5:
-                        $devPic =  '/images/battery/70AC.png';
-                        $devStat =  '70%';
-                        break;
-                      case 6:
-                        $devPic =  '/images/battery/80AC.png';
-                        $devStat =  '80%';
-                        break;
-                      case 7:
-                        $devPic =  '/images/battery/90AC.png';
-                        $devStat =  '90%';
-                        break;
-                      case 8:
-                        $devPic =  '/images/battery/100AC.png';
-                        $devStat =  '100%';
-                        break;
-                      default:
-                        $devPic =  '/images/battery/Faulty.png';
-                        $devStat =  'Faulty';
-                        break;
+                    if ($state1Gen == 0 || $state1Gen == 4) {
+                        switch ($state1Bat) {
+                          case 0:
+                            $devPic = '/images/battery/Faulty.png';
+                            $devStat = 'Faulty';
+                            break;
+                          case 1:
+                            $devPic =  '/images/battery/30AC.png';
+                            $devStat =  '30%';
+                            break;
+                          case 2:
+                            $devPic =  '/images/battery/40AC.png';
+                            $devStat =  '40%';
+                            break;
+                          case 3:
+                            $devPic =  '/images/battery/50AC.png';
+                            $devStat =  '50%';
+                            break;
+                          case 4:
+                            $devPic =  '/images/battery/60AC.png';
+                            $devStat =  '60%';
+                            break;
+                          case 5:
+                            $devPic =  '/images/battery/70AC.png';
+                            $devStat =  '70%';
+                            break;
+                          case 6:
+                            $devPic =  '/images/battery/80AC.png';
+                            $devStat =  '80%';
+                            break;
+                          case 7:
+                            $devPic =  '/images/battery/90AC.png';
+                            $devStat =  '90%';
+                            break;
+                          case 8:
+                            $devPic =  '/images/battery/100AC.png';
+                            $devStat =  '100%';
+                            break;
+                          default:
+                            $devPic =  '/images/battery/Faulty.png';
+                            $devStat =  'Faulty';
+                            break;
+                        }
+                      } else {
+                        switch ($state1Bat) {
+                          case 0:
+                            $devPic =  '/images/battery/Faulty.png';
+                            $devStat =  'Faulty';
+                            break;
+                          case 1:
+                            $devPic =  '/images/battery/30B.png';
+                            $devStat =  '30%';
+                            break;
+                          case 2:
+                            $devPic =  '/images/battery/40B.png';
+                            $devStat =  '40%';
+                            break;
+                          case 3:
+                            $devPic =  '/images/battery/50B.png';
+                            $devStat =  '50%';
+                            break;
+                          case 4:
+                            $devPic =  '/images/battery/60B.png';
+                            $devStat =  '60%';
+                            break;
+                          case 5:
+                            $devPic =  '/images/battery/70B.png';
+                            $devStat =  '70%';
+                            break;
+                          case 6:
+                            $devPic =  '/images/battery/80B.png';
+                            $devStat =  '80%';
+                            break;
+                          case 7:
+                            $devPic =  '/images/battery/90B.png';
+                            $devStat =  '90%';
+                            break;
+                          case 8:
+                            $devPic =  '/images/battery/100B.png';
+                            $devStat =  '100%';
+                            break;
+                          default:
+                            $devPic =  '/images/battery/Faulty.png';
+                            $devStat =  'Faulty';
+                            break;
+                        }
+                      }
+                      $device->registered = $devPic;
+                      $device->userExceptions = $devStat;
                     }
-                  } else {
-                    switch ($state1Bat) {
-                      case 0:
-                        $devPic =  '/images/battery/Faulty.png';
-                        $devStat =  'Faulty';
-                        break;
-                      case 1:
-                        $devPic =  '/images/battery/30B.png';
-                        $devStat =  '30%';
-                        break;
-                      case 2:
-                        $devPic =  '/images/battery/40B.png';
-                        $devStat =  '40%';
-                        break;
-                      case 3:
-                        $devPic =  '/images/battery/50B.png';
-                        $devStat =  '50%';
-                        break;
-                      case 4:
-                        $devPic =  '/images/battery/60B.png';
-                        $devStat =  '60%';
-                        break;
-                      case 5:
-                        $devPic =  '/images/battery/70B.png';
-                        $devStat =  '70%';
-                        break;
-                      case 6:
-                        $devPic =  '/images/battery/80B.png';
-                        $devStat =  '80%';
-                        break;
-                      case 7:
-                        $devPic =  '/images/battery/90B.png';
-                        $devStat =  '90%';
-                        break;
-                      case 8:
-                        $devPic =  '/images/battery/100B.png';
-                        $devStat =  '100%';
-                        break;
-                      default:
-                        $devPic =  '/images/battery/Faulty.png';
-                        $devStat =  'Faulty';
-                        break;
-                    }
-                  }
-                  $device->registered = $devPic;
-                  $device->userExceptions = $devStat;
+
+    
+                }
+                
 
 
             }
 
-            if(array_key_exists(0, $type)){
-                $deviceTypes[$device->type] = $type[0]->name;
-                $device->type= $type[0]->name;
 
-            }
         }
         //dd($devices);
         $num_hubs = count($hubsForAccount);
