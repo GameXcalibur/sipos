@@ -130,6 +130,11 @@
                                             <img src="{{ asset('images') }}/Master Icon.png" class="" style="width: 100%;" alt="" />
                                             
                                             @break
+
+                                        @case('Proem VCM100')
+                                            <img src="{{ asset('images') }}/VCM Icon.png" class="" style="width: 100%;" alt="" />
+                                            
+                                            @break
                                         @case('EMC Lite Maintained')
                                         @case('EMC Lite Non Maintained')
 
