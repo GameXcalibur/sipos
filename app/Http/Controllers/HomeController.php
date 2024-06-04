@@ -580,7 +580,7 @@ class HomeController extends Controller
                     $device->type= $type[0]->name;
                     $devPic =  '/images/battery/100AC.png';
                     $devStat =  '-';
-                    if($device->type != 'Proem VCM100' && $device->type != 'Master'){
+                    if(false){
 
                     if ($state1Gen == 0 || $state1Gen == 4) {
                         switch ($state1Bat) {
