@@ -65,7 +65,7 @@ body {
 
                     <div class="table-responsive-sm" style="margin-top: 30px; background-color: transparent !important;">
 
-                        <table class="table table-striped" style="background-color: transparent !important;" >
+                        <table class="table table-striped" style="background: url('{{ public_path('images/opacity.png') }}') !important; background-size: 100% !important;  background-position: center !important;" >
                             <thead>
                             <tr>
                                 <th class="align-middle">Device</th>
@@ -76,7 +76,7 @@ body {
                             </thead>
                             
     
-                            <tbody style="background: url('{{ public_path('images/opacity.png') }}') !important; background-size: 100% !important;  background-position: center !important; ">
+                            <tbody >
                             @foreach($tests as $test)
                                 <tr style="background-color: none !important; ">
                                     <td class="align-middle" style="background-color: none !important;">
