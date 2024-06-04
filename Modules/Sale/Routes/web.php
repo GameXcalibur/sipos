@@ -34,7 +34,9 @@ Route::group(['middleware' => 'auth'], function () {
         //Generate PDF
         Route::get('/test/pdf/{date}/{type}', function ($date, $type) {
             $dateSplit = explode(',', $date);
-            $tests = \App\Models\Test::where('testType', $type)->where('dateString', 'LIKE', '%'.$dateSplit[0].','.$dateSplit[1].'%')->get();
+            $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
+
+            $tests = \App\Models\Test::where('testType', $type)->where('dateString', 'LIKE', '%'.$dateSplit[0].','.$dateSplit[1].'%')->where('hubSerial', $hubsForAccount[0]->hubSerial)->get();
             //dd($test);
             //$customer = \Modules\People\Entities\Customer::findOrFail($sale->customer_id);
             foreach($tests as &$test){
