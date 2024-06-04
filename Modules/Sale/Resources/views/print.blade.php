@@ -76,9 +76,9 @@ body {
                             </thead>
                             
     
-                            <tbody style="background: url('{{ public_path('images/opacity.png') }}') !important; background-size: 100% !important;  background-position: center !important; background-repeat: repeat-y !important;">
+                            <tbody style="background: url('{{ public_path('images/opacity.png') }}') !important; background-size: 100% !important;  background-position: center !important; ">
                             @foreach($tests as $test)
-                                <tr style="background-color: transparent !important; background: none !important;">
+                                <tr style="background-color: transparent !important; ">
                                     <td class="align-middle" style="background-color: transparent !important;">
                                         {{ $test->extra1 }} <br>
                                         <span class="badge badge-success">
@@ -86,7 +86,7 @@ body {
                                             </span>
                                     </td>
 
-                                    <td class="align-middle" style="">
+                                    <td class="align-middle" style="background-color: transparent !important;">
                                         <strong>{{$test->testResult }}</strong>
                                     </td>
 
