@@ -76,7 +76,7 @@ body {
                             </thead>
                             
     
-                            <tbody>
+                            <tbody style="background: url('{{ public_path('images/opacity.png') }}') !important; background-size: 100% !important;  background-position: center !important; background-repeat: repeat-y !important;">
                             @foreach($tests as $test)
                                 <tr style="background-color: transparent !important; background: none !important;">
                                     <td class="align-middle" style="background-color: transparent !important;">
