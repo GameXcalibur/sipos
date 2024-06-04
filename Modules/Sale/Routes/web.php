@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Modules\Setting\Entities\Setting;
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -33,7 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         //Generate PDF
         Route::get('/test/pdf/{date}/{type}', function ($date, $type) {
-        $settings = \Setting::where('user_email', \Auth::user()->email)->firstOrFail();
+        $settings = Setting::where('user_email', \Auth::user()->email)->firstOrFail();
 
             $dateSplit = explode(',', $date);
             $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
