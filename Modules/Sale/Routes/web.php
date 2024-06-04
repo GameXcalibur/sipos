@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         //Generate PDF
         Route::get('/test/pdf/{date}/{type}', function ($date, $type) {
+        $settings = \Setting::where('user_email', \Auth::user()->email)->firstOrFail();
+
             $dateSplit = explode(',', $date);
             $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
 
@@ -58,7 +60,9 @@ Route::group(['middleware' => 'auth'], function () {
             
             $pdf = \PDF::loadView('sale::print', [
                 'tests' => $tests,
+                'settings' => $settings,
                 'date' => $date,
+
                 'type' => $type,
 
             ])->setPaper('a4');

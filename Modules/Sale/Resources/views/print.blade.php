@@ -36,19 +36,19 @@ body {
                     <div class="row mb-4">
                         <div class="col-xs-6 mb-3 mb-md-0">
                             <h4 class="mb-2" style="border-bottom: 1px solid #dddddd;padding-bottom: 10px;">Company Info:</h4>
-                            <div><strong>{{ settings()->company_name }}</strong></div>
-                            <div>{{ settings()->company_address }}</div>
-                            @if (settings()->company_address1 != '')
-                            <div>{{ settings()->company_address1 }}</div>
+                            <div><strong>{{ $settings->company_name }}</strong></div>
+                            <div>{{ $settings->company_address }}</div>
+                            @if ($settings->company_address1 != '')
+                            <div>{{ $settings->company_address1 }}</div>
                                 
                             @endif
-                            @if (settings()->company_address2 != '')
-                            <div>{{ settings()->company_address2 }}</div>
+                            @if ($settings->company_address2 != '')
+                            <div>{{ $settings->company_address2 }}</div>
                                 
                             @endif
 
-                            <div>Email: {{ settings()->company_email }}</div>
-                            <div>Phone: {{ settings()->company_phone }}</div>
+                            <div>Email: {{ $settings->company_email }}</div>
+                            <div>Phone: {{ $settings->company_phone }}</div>
                         </div>
 
                         <div class="col-xs-6 mb-3 mb-md-0">
