@@ -14,6 +14,8 @@ use Modules\PurchasesReturn\Entities\PurchaseReturnPayment;
 use Modules\Sale\Entities\Sale;
 use Modules\Sale\Entities\SalePayment;
 use Modules\SalesReturn\Entities\SaleReturn;
+use App\Models\Test;
+
 
 use App\Models\User;
 
@@ -523,6 +525,26 @@ class HomeController extends Controller
         ]);
     }
 
+    public function createTest(){
+        $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
+        foreach($hubsForAccount as $hub){
+            $devices = \DB::select('SELECT * FROM devices WHERE hub_serial_no ="'.$hub->hubSerial.'"');
+            $allDevices = array_merge($allDevices, $devices);
+            foreach($allDevices as &$device){
+                Test::create([
+                    'dateString' => 'Mon, 03 Jun 2024, 08:26:39',
+                    'deviceSerial' => $device->serial_no,
+                    'testResult' => 'Passed',
+                    'testType' => 'Weekly',
+                    'hubSerial' => $hub->hubSerial,
+
+                ]);
+            }
+
+
+        }
+    }
+
 
     public function networkstatus(){
         $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
@@ -556,7 +578,7 @@ class HomeController extends Controller
                     $device->type= $type[0]->name;
                     $devPic =  '/images/battery/100AC.png';
                     $devStat =  '-';
-                    if($device->type != 'Proem VCM100'){
+                    if($device->type != 'Proem VCM100' && $device->type != 'Master'){
 
                     if ($state1Gen == 0 || $state1Gen == 4) {
                         switch ($state1Bat) {
