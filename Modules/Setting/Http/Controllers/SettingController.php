@@ -17,7 +17,7 @@ class SettingController extends Controller
 
     public function index() {
 
-        $settings = Setting::firstOrFail();
+        $settings = Setting::where('user_email', \Auth::user()->email)->firstOrFail();
 
         return view('setting::index', compact('settings'));
     }
