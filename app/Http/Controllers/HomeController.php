@@ -527,6 +527,8 @@ class HomeController extends Controller
 
     public function createTest(){
         $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
+        $allDevices = [];
+
         foreach($hubsForAccount as $hub){
             $devices = \DB::select('SELECT * FROM devices WHERE hub_serial_no ="'.$hub->hubSerial.'"');
             $allDevices = array_merge($allDevices, $devices);
