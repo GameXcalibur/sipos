@@ -42,8 +42,10 @@ Route::group(['middleware' => 'auth'], function () {
             foreach($tests as $key=>&$test){
                 $device = \DB::select('SELECT * FROM devices WHERE serial_no ="'.$test->deviceSerial.'"');
                 if(array_key_exists(0, $device)){
-                    if($device[0]->device_name == '')
+                    if(strlen($device[0]->device_name) < 3){
+                        unset($tests[$key]);
                         continue;
+                    }
                     $test->extra1 = $device[0]->device_name;
     
                 }
