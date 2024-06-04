@@ -534,10 +534,10 @@ class HomeController extends Controller
             $allDevices = array_merge($allDevices, $devices);
             foreach($allDevices as &$device){
                 Test::create([
-                    'dateString' => 'Mon, 03 Jun 2024, 08:26:39',
+                    'dateString' => 'Mon, 03 Jun 2024, 05:13:41',
                     'deviceSerial' => $device->serial_no,
                     'testResult' => 'Passed',
-                    'testType' => 'Weekly',
+                    'testType' => 'Monthly',
                     'hubSerial' => $hub->hubSerial,
 
                 ]);

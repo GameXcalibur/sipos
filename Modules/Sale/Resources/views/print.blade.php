@@ -86,7 +86,7 @@ body {
                                             </span>
                                     </td>
 
-                                    <td class="align-middle" style="background: url('{{ public_path('images/opacity.png') }}') !important; background-size: 100% !important;  background-position: center !important; background-repeat: repeat-y !important;">
+                                    <td class="align-middle" style="">
                                         <strong>{{$test->testResult }}</strong>
                                     </td>
 
