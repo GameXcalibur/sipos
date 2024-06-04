@@ -48,6 +48,9 @@ Route::group(['middleware' => 'auth'], function () {
                     }
                     $test->extra1 = $device[0]->device_name;
     
+                }else{
+                    unset($tests[$key]);
+
                 }
                 
             }
