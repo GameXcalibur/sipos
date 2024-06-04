@@ -24,7 +24,7 @@ class SettingController extends Controller
 
 
     public function update(StoreSettingsRequest $request) {
-        Setting::firstOrFail()->update([
+        Setting::where('user_email', \Auth::user()->email)->firstOrFail()->update([
             'company_name' => $request->company_name,
             'company_email' => $request->company_email,
             'company_phone' => $request->company_phone,
