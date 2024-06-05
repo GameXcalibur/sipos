@@ -17,9 +17,20 @@ body {
     background-size: 100%;
     background-attachment: fixed;
 }
+
+.watermark {
+ background: url("{{ public_path('images/opacity.png') }}") 0 0 !important;
+ padding-top: 0 !important;
+ padding-left: 0 !important;
+ z-index: 99 !important;
+ background-size: cover !important;
+ width: 700px !important;
+ height: 963px !important;
+ position: relative !important;
+}
 </style>
 </head>
-<body style="background: url('{{ public_path('images/opacity6.png') }}') !important; background-size: 100% !important;  background-position: center !important; background-repeat: repeat-y !important;">
+<body class='watermark'>
 
 <div class="container-fluid">
     <div class="row">
