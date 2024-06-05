@@ -19,7 +19,7 @@ body {
 }
 
 .watermark {
- background: url("{{ public_path('images/opacity.png') }}") 0 0 !important;
+ background: url("{{ public_path('images/opacity6.png') }}") 0 0 !important;
  padding-top: 0 !important;
  padding-left: 0 !important;
  z-index: 99 !important;
