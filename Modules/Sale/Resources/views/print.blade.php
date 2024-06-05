@@ -19,7 +19,7 @@ body {
 }
 </style>
 </head>
-<body >
+<body style="background: url('{{ public_path('images/opacity6.png') }}') !important; background-size: 100% !important;  background-position: center !important; background-repeat: repeat-y !important;">
 
 <div class="container-fluid">
     <div class="row">
@@ -63,11 +63,11 @@ body {
 
                     </div>
 
-                    <div class="table-responsive-sm" style="margin-top: 30px; background: url('{{ public_path('images/opacity6.png') }}') !important; background-size: 100% !important;  background-position: center !important; background-repeat: repeat-y !important; ">
+                    <div class="table-responsive-sm" style="margin-top: 30px; background-color: transparent !important;">
 
                         <table class="table table-striped" style="background-color: transparent !important;" >
-                            <thead>
-                            <tr>
+                            <thead style="background-color: transparent !important;">
+                            <tr style="background-color: transparent !important;">
                                 <th class="align-middle">Device</th>
                                 <th class="align-middle">Result</th>
                                 <th class="align-middle">Reason</th>
