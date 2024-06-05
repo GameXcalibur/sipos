@@ -24,7 +24,7 @@ body {
  padding-left: 0 !important;
  z-index: 99 !important;
  background-size: cover !important;
- width: 500px !important;
+ width: 100% !important;
  height: 963px !important;
  position: relative !important;
 }
