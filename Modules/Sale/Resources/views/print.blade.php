@@ -63,7 +63,7 @@ body {
 
                     </div>
 
-                    <div class="table-responsive-sm" style="margin-top: 30px; background: url('{{ public_path('images/opacity3.png') }}') !important; background-size: 100% !important;  background-position: center !important; background-repeat: round !important; ">
+                    <div class="table-responsive-sm" style="margin-top: 30px; background: url('{{ public_path('images/opacity4.png') }}') !important; background-size: 100% !important;  background-position: center !important; background-repeat: repeat-y !important; ">
 
                         <table class="table table-striped" style="background-color: transparent !important;" >
                             <thead>
