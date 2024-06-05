@@ -78,19 +78,19 @@ body {
     
                             <tbody style="">
                             @foreach($tests as $test)
-                                <tr style="background-color: none !important; ">
-                                    <td class="align-middle" style="background-color: none !important;">
+                                <tr style="background-color: transparent !important; ">
+                                    <td class="align-middle" style="background-color: transparent !important;">
                                         {{ $test->extra1 }} <br>
                                         <span class="badge badge-success">
                                                 <strong>{{ $test->deviceSerial }}</strong>
                                             </span>
                                     </td>
 
-                                    <td class="align-middle" style="background-color: none !important;">
+                                    <td class="align-middle" style="background-color: transparent !important;">
                                         <strong>{{$test->testResult }}</strong>
                                     </td>
 
-                                    <td class="align-middle" style="background-color: none !important;">
+                                    <td class="align-middle" style="background-color: transparent !important;">
                                         -
                                     </td>
 
