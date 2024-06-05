@@ -63,7 +63,7 @@ body {
 
                     </div>
 
-                    <div class="table-responsive-sm" style="margin-top: 30px; background-color: transparent !important;">
+                    <div class="table-responsive-sm" style="margin-top: 30px; background: url('{{ public_path('images/opacity.png') }}') !important; background-size: 100% !important;  background-position: center !important;">
 
                         <table class="table table-striped" style="background-color: transparent !important;" >
                             <thead>
