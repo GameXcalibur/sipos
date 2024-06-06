@@ -25,30 +25,37 @@
                     <input type='email' name='email' placeholder='' style='width: 80%;'></input>
 
             </div>
+            <hr>
             <div class="row">
 
             <input type='email' name='email' placeholder='' style='width: 80%;'></input>
 
             </div>
+            <hr>
+
             <div class="row">
 
             <input type='email' name='email' placeholder='' style='width: 80%;'></input>
 
             </div>
+            <hr>
+
             <div class="row">
 
             <input type='email' name='email' placeholder='' style='width: 80%;'></input>
 
             </div>
+            <hr>
+
         </div>
         <div class="col-md-4">
             <div class="row">
                 <h2><b>Notification Interval</b></h2>
 
             </div>
-            <div class="row" style='width: 80%;'>
+            <div class="row" >
 
-                <select>
+                <select style='width: 100%;'>
                     <option>Once / Day</option>
                     <option>Once / Week</option>
                     <option>Once / Month</option>
@@ -61,7 +68,13 @@
 
 
     </div>
+    <div class="row" >
+        <button class='btn btn-success' style='width:100%;'>SUBMIT</button>
+    </div>
+    <div class="row" >
 
+    <p>These notifications will alert you to any problems found on the netowork, and will be emailed to the respective email addresses</p>
+    </div>
 
     </div>
 @endsection
