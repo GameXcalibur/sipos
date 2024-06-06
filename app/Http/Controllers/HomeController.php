@@ -711,8 +711,21 @@ class HomeController extends Controller
     }
 
     public function schedules(){
+        $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
+        $devicesWeekly = [];
+        $schedules = 0;
+        foreach($hubsForAccount as $hub){
+            $hubSerials[] = $hub->hubSerial;
+            $schedules += \DB::table('proEM_Schedules')->where('pSchedHubSerial', $hub->hubSerial)->count();
 
+            // $devices = \DB::table('devices')->where('hub_serial_no', $hub->hubSerial)->count();
+            // $allDevices += $devices;
+            // $master += \DB::table('devices')->where('hub_serial_no', $hub->hubSerial)->where('type', '045')->count();
+
+
+        }
         return view('schedules', [
+            'countSched' => $schedules,
         ]);
     }
 
