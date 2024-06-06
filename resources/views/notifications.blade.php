@@ -71,9 +71,9 @@
     <div class="row" >
         <button class='btn btn-success' style='width:100%;'>SUBMIT</button>
     </div>
-    <div class="row" >
+    <div class="row justify-content-center" >
 
-    <p>These notifications will alert you to any problems found on the netowork, and will be emailed to the respective email addresses</p>
+        <p>*These notifications will alert you to any problems found on the netowork, and will be emailed to the respective email addresses</p>
     </div>
 
     </div>
