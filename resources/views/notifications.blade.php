@@ -20,24 +20,24 @@
                 <h2><b>Emails</b></h2>
 
             </div>
-            <div class="row" style='width: 100%;'>
+            <div class="row" >
 
-                    <input type='email' name='email' placeholder=''></input>
-
-            </div>
-            <div class="row">
-
-                <input type='email' name='email' placeholder=''></input>
+                    <input type='email' name='email' placeholder='' style='width: 100%;'></input>
 
             </div>
             <div class="row">
 
-                <input type='email' name='email' placeholder=''></input>
+            <input type='email' name='email' placeholder='' style='width: 100%;'></input>
 
             </div>
             <div class="row">
 
-                <input type='email' name='email' placeholder=''></input>
+            <input type='email' name='email' placeholder='' style='width: 100%;'></input>
+
+            </div>
+            <div class="row">
+
+            <input type='email' name='email' placeholder='' style='width: 100%;'></input>
 
             </div>
         </div>
