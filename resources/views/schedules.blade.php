@@ -111,6 +111,8 @@
                                     <div class="font-weight-bold " >Type: {{$data[0]['type']}}</div>
                                     <div class="font-weight-bold " >Name: {{$data[0]['name']}}</div>
                                     <div class="font-weight-bold " >Serial: {{$key}}</div>
+                                    <div class="font-weight-bold " >Schedule: {{$data[0]['sched']}}</div>
+
 
 
 
@@ -220,6 +222,7 @@
                                     <div class="font-weight-bold " >Type: {{$data[0]['type']}}</div>
                                     <div class="font-weight-bold " >Name: {{$data[0]['name']}}</div>
                                     <div class="font-weight-bold " >Serial: {{$key}}</div>
+                                    <div class="font-weight-bold " >Schedule: {{$data[0]['sched']}}</div>
 
 
 
@@ -332,6 +335,7 @@
                                     <div class="font-weight-bold " >Type: {{$data[0]['type']}}</div>
                                     <div class="font-weight-bold " >Name: {{$data[0]['name']}}</div>
                                     <div class="font-weight-bold " >Serial: {{$key}}</div>
+                                    <div class="font-weight-bold " >Schedule: {{$data[0]['sched']}}</div>
 
 
 
@@ -443,6 +447,7 @@
                                     <div class="font-weight-bold " >Type: {{$data[0]['type']}}</div>
                                     <div class="font-weight-bold " >Name: {{$data[0]['name']}}</div>
                                     <div class="font-weight-bold " >Serial: {{$key}}</div>
+                                    <div class="font-weight-bold " >Schedule: {{$data[0]['sched']}}</div>
 
 
 
