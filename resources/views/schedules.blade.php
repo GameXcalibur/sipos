@@ -42,7 +42,7 @@
 
                 </div>
                 <div class="row">
-                    @foreach ($finalList as $key=>$data)
+                    @foreach ($finalList['weekly'] as $key=>$data)
                     @if ($data['type'] != $type)
                         @continue
                     @endif
