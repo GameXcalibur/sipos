@@ -713,17 +713,56 @@ class HomeController extends Controller
     public function schedules(){
         $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
         $devicesWeekly = [];
-        $schedules = 0;
+        $schedules = [];
         foreach($hubsForAccount as $hub){
-            $hubSerials[] = $hub->hubSerial;
-            $schedules += \DB::table('proEM_Schedules')->where('pSchedHubSerial', $hub->hubSerial)->count();
+            $schedules = \DB::table('proEM_Schedules')->where('pSchedHubSerial', $hub->hubSerial)->get();
 
-            // $devices = \DB::table('devices')->where('hub_serial_no', $hub->hubSerial)->count();
             // $allDevices += $devices;
             // $master += \DB::table('devices')->where('hub_serial_no', $hub->hubSerial)->where('type', '045')->count();
 
 
         }
+        $finalList = [];
+        $finalList['weekly'] = [];
+        $finalList['monthly'] = [];
+        $finalList['bannual'] = [];
+        $finalList['annual'] = [];
+
+        foreach($schedules as &$schedule){
+            $device = \DB::table('devices')->where('serial_no', $schedule->pSchedDSerial)->first();
+            $type = \DB::select('SELECT * FROM device_types WHERE code ="'.$device->type.'"')->first();
+
+            if($device){
+                $tmp = [];
+                $tmp['name'] = $device->device_name;
+                $tmp['type'] = $type->name;
+
+                switch($schedule->pSchedIdx){
+                    case '1':
+                        if(!array_key_exists($device->serial_no, $finalList['weekly']))
+                            $finalList['weekly'][$device->serial_no] = [];
+                        array_push($finalList['weekly'][$device->serial_no], $tmp);
+                        break;
+                    case '2':
+                        if(!array_key_exists($device->serial_no, $finalList['monthly']))
+                            $finalList['monthly'][$device->serial_no] = [];
+                        array_push($finalList['monthly'][$device->serial_no], $tmp);
+                        break;
+                    case '3':
+                        if(!array_key_exists($device->serial_no, $finalList['bannual']))
+                            $finalList['bannual'][$device->serial_no] = [];
+                        array_push($finalList['bannual'][$device->serial_no], $tmp);
+                        break;
+                    case '4':
+                        if(!array_key_exists($device->serial_no, $finalList['annual']))
+                            $finalList['annual'][$device->serial_no] = [];
+                        array_push($finalList['annual'][$device->serial_no], $tmp);
+                        break;
+                }
+            }
+
+        }
+        dd($finalList);
         return view('schedules', [
             'countSched' => $schedules,
         ]);
