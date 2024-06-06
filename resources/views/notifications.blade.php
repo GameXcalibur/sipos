@@ -64,6 +64,43 @@
                 </select>
 
             </div>
+            <hr>
+            <div class="row" >
+
+            <select style='width: 100%;'>
+                <option>Once / Day</option>
+                <option>Once / Week</option>
+                <option>Once / Month</option>
+                <option>Once / Year</option>
+
+            </select>
+
+            </div>
+            <hr>
+            <div class="row" >
+
+            <select style='width: 100%;'>
+                <option>Once / Day</option>
+                <option>Once / Week</option>
+                <option>Once / Month</option>
+                <option>Once / Year</option>
+
+            </select>
+
+            </div>
+            <hr>
+            <div class="row" >
+
+            <select style='width: 100%;'>
+                <option>Once / Day</option>
+                <option>Once / Week</option>
+                <option>Once / Month</option>
+                <option>Once / Year</option>
+
+            </select>
+
+            </div>
+
         </div>
 
 
