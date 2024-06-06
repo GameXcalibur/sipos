@@ -30,8 +30,8 @@
     </a>
 </li>
 
-<li class="c-sidebar-nav-item {{ request()->routeIs('home') ? 'c-active' : '' }}">
-    <a class="c-sidebar-nav-link" href="/reports">
+<li class="c-sidebar-nav-item {{ request()->routeIs('schedules') ? 'c-active' : '' }}">
+    <a class="c-sidebar-nav-link" href="{{ route('schedules') }}">
         <i class="c-sidebar-nav-icon bi bi-calendar-check" style="line-height: 1;"></i> Schedules
     </a>
 </li>
