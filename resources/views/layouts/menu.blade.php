@@ -35,6 +35,12 @@
         <i class="c-sidebar-nav-icon bi bi-calendar-check" style="line-height: 1;"></i> Schedules
     </a>
 </li>
+
+<li class="c-sidebar-nav-item {{ request()->routeIs('notifications') ? 'c-active' : '' }}">
+    <a class="c-sidebar-nav-link" href="{{ route('notifications') }}">
+        <i class="c-sidebar-nav-icon bi bi-bell" style="line-height: 1;"></i> Notifications
+    </a>
+</li>
 <li class="c-sidebar-nav-item">
                 <a class="c-sidebar-nav-link {{ request()->routeIs('settings*') ? 'c-active' : '' }}" href="{{ route('settings.index') }}">
                     <i class="c-sidebar-nav-icon bi bi-sliders" style="line-height: 1;"></i> System Settings

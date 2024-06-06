@@ -704,6 +704,12 @@ class HomeController extends Controller
         ]);
     }
 
+    public function notifications(){
+
+        return view('notifications', [
+        ]);
+    }
+
     public function device_reports(ProductCategoriesDataTable $dataTable){
         $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
         // $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
