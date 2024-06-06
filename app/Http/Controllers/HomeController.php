@@ -776,7 +776,11 @@ class HomeController extends Controller
 
                                 break;
                         }
-                        $tmp['sched'] = $day.' At '.$schedule->pSchedHour.':'.$schedule->pSchedMin;
+                        $min = $schedule->pSchedMin;
+                        if(strlen($min) != 2){
+                            $min = '0'.$min;
+                        }
+                        $tmp['sched'] = $day.' At '.$schedule->pSchedHour.':'.$min;
                     
                         array_push($finalList['weekly'][$device->serial_no], $tmp);
 
