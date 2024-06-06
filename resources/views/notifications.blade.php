@@ -22,28 +22,39 @@
             </div>
             <div class="row" >
 
-                    <input type='email' name='email' placeholder='' style='width: 100%;'></input>
+                    <input type='email' name='email' placeholder='' style='width: 80%;'></input>
 
             </div>
             <div class="row">
 
-            <input type='email' name='email' placeholder='' style='width: 100%;'></input>
+            <input type='email' name='email' placeholder='' style='width: 80%;'></input>
 
             </div>
             <div class="row">
 
-            <input type='email' name='email' placeholder='' style='width: 100%;'></input>
+            <input type='email' name='email' placeholder='' style='width: 80%;'></input>
 
             </div>
             <div class="row">
 
-            <input type='email' name='email' placeholder='' style='width: 100%;'></input>
+            <input type='email' name='email' placeholder='' style='width: 80%;'></input>
 
             </div>
         </div>
         <div class="col-md-4">
             <div class="row">
                 <h2><b>Notification Interval</b></h2>
+
+            </div>
+            <div class="row" style='width: 80%;'>
+
+                <select>
+                    <option>Once / Day</option>
+                    <option>Once / Week</option>
+                    <option>Once / Month</option>
+                    <option>Once / Year</option>
+
+                </select>
 
             </div>
         </div>
