@@ -765,7 +765,7 @@ class HomeController extends Controller
             }
 
         }
-        dd($finalList);
+        //dd($finalList);
         return view('schedules', [
             'finalList' => $finalList,
             'types' => $deviceTypes,
