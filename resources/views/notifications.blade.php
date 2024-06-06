@@ -38,11 +38,11 @@
 
             </div>
         </div>
-        <div class="col-md-8">
-        <div class="row">
-            <h2><u>Notification Interval</u></h2>
+        <div class="col-md-4">
+            <div class="row">
+                <h2><b>Notification Interval</b></h2>
 
-    </div>
+            </div>
         </div>
 
 
