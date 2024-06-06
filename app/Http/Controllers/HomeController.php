@@ -746,7 +746,37 @@ class HomeController extends Controller
                     case '1':
                         if(!array_key_exists($device->serial_no, $finalList['weekly']))
                             $finalList['weekly'][$device->serial_no] = [];
-                        $tmp['sched'] = 'Day Of The Week: '.$schedule->pSchedDays.' At '.$schedule->pSchedHour.':'.$schedule->pSchedMin;
+                        $day = '';
+                        switch($schedule->pSchedDays){
+                            case 2:
+                                $day = 'Mondays';
+                                break;
+                            case 4:
+                                $day = 'Tuesdays';
+
+                                break;
+                            case 8:
+                                $day = 'Wednesdays';
+
+                                break;
+                            case 16:
+                                $day = 'Thursdays';
+
+                                break;
+                            case 32:
+                                $day = 'Fridays';
+
+                                break;
+                            case 64:
+                                $day = 'Saturdays';
+
+                                break;
+                            case 128:
+                                $day = 'Sundays';
+
+                                break;
+                        }
+                        $tmp['sched'] = $day.' At '.$schedule->pSchedHour.':'.$schedule->pSchedMin;
                     
                         array_push($finalList['weekly'][$device->serial_no], $tmp);
 
