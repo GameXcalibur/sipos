@@ -43,14 +43,14 @@
                 </div>
                 <div class="row">
                     @foreach ($finalList['weekly'] as $key=>$data)
-                    @if ($data['type'] != $type)
+                    @if ($data[0]['type'] != $type)
                         @continue
                     @endif
                     <div class="col-lg-6">
                         <div class="card border-0">
                             <div class="card-body p-0 d-flex  shadow-sm rounded-left rounded-right">
                                 <div class="p-2 mfe-3 align-items-center  bg-gradient-success rounded-left rounded-right" style='width: 7vmax''>
-                                    @switch($data['type'])
+                                    @switch($data[0]['type'])
                                         @case('Master')
                                             <img src="{{ asset('images') }}/Master Icon.png" class="" style="width: 100%;" alt="" />
                                             
@@ -108,8 +108,8 @@
 
                                 </div>
                                 <div style='width: 100% !important; text-align: laft !important; margin: auto;'>
-                                    <div class="font-weight-bold " >Type: {{$data['type']}}</div>
-                                    <div class="font-weight-bold " >Name: {{$data['name']}}</div>
+                                    <div class="font-weight-bold " >Type: {{$data[0]['type']}}</div>
+                                    <div class="font-weight-bold " >Name: {{$data[0]['name']}}</div>
                                     <div class="font-weight-bold " >Serial: {{$key}}</div>
 
 
