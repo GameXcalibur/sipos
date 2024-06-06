@@ -36,6 +36,9 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/notifications', 'HomeController@notifications')
         ->name('notifications');
+
+        Route::get('/schedules', 'HomeController@schedules')
+        ->name('schedules');
         Route::get('/device_reports', 'HomeController@device_reports')
         ->name('devices.reports');
     Route::get('/devices/list', 'HomeController@devices')
