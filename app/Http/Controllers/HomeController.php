@@ -732,7 +732,7 @@ class HomeController extends Controller
             $device = \DB::table('devices')->where('serial_no', $schedule->pSchedDSerial)->first();
 
             if($device){
-                $type = \DB::select('SELECT * FROM device_types WHERE code ="'.$device->type.'"')->first();
+                $type = \DB::table('device_types')->where('code', $device->type)->first();
 
                 $tmp = [];
                 $tmp['name'] = $device->device_name;
