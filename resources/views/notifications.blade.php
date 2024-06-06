@@ -16,8 +16,11 @@
 
     <div class="row">
         <div class="col-md-8">
+        <div class="row">
+                <h2><b>Emails</b></h2>
 
-            <div class="row">
+            </div>
+            <div class="row" style='width: 100%;'>
 
                     <input type='email' name='email' placeholder=''></input>
 
