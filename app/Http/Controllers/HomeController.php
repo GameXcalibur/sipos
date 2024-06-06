@@ -714,6 +714,7 @@ class HomeController extends Controller
         $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
         $devicesWeekly = [];
         $schedules = [];
+        $deviceTypes = [];
         foreach($hubsForAccount as $hub){
             $schedules = \DB::table('proEM_Schedules')->where('pSchedHubSerial', $hub->hubSerial)->get();
 
@@ -733,6 +734,7 @@ class HomeController extends Controller
 
             if($device){
                 $type = \DB::table('device_types')->where('code', $device->type)->first();
+                $deviceTypes[$device->type] = $type->name;
 
                 $tmp = [];
                 $tmp['name'] = $device->device_name;
@@ -765,7 +767,9 @@ class HomeController extends Controller
         }
         dd($finalList);
         return view('schedules', [
-            'countSched' => $schedules,
+            'finalList' => $finalList,
+            'types' => $deviceTypes,
+
         ]);
     }
 

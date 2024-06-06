@@ -27,7 +27,112 @@
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
 
-      {{$countSched}}
+      @foreach ($types as $type)
+        @if ($type == 'USER')
+            @continue
+        @endif
+        <hr>
+        <div class="row mb-4">
+
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>{{$type}}</h1>
+                    </div>
+
+                </div>
+                <div class="row">
+                    @foreach ($finalList as $key=>$data)
+                    @if ($data['type'] != $type)
+                        @continue
+                    @endif
+                    <div class="col-lg-6">
+                        <div class="card border-0">
+                            <div class="card-body p-0 d-flex  shadow-sm rounded-left rounded-right">
+                                <div class="p-2 mfe-3 align-items-center  bg-gradient-success rounded-left rounded-right" style='width: 7vmax''>
+                                    @switch($data['type'])
+                                        @case('Master')
+                                            <img src="{{ asset('images') }}/Master Icon.png" class="" style="width: 100%;" alt="" />
+                                            
+                                            @break
+                                        @case('Proem VCM100')
+                                            <img src="{{ asset('images') }}/VCM Icon.png" class="" style="width: 100%;" alt="" />
+                                            
+                                            @break
+                                        @case('EMC Lite Maintained')
+                                        @case('EMC Lite Non Maintained')
+
+
+                                            <img src="{{ asset('images') }}/Pro-Em Lite Icon.png" class="" style="width: 100%;" alt="" />
+                                            
+                                            @break
+                                        @case('Bulkhead Maintained')
+                                        @case('Bulkhead Non Maintained')
+                                        <img src="{{ asset('images') }}/Bulkhead Icon.png" class="" style="width: 100%;" alt="" />
+
+                                            @break
+
+                                        @case('Proem Emergency')
+                                        @case('Proem EMC')
+
+                                            <img src="{{ asset('images') }}/Pro-Em Icon.png" class="" style="width: 100%;" alt="" />
+
+                                            @break
+
+                                        @case('Twin Spot Maintained')
+                                        @case('Twin Spot Non Maintained')
+
+
+                                            <img src="{{ asset('images') }}/Twin Spot Icon.png" class="" style="width: 100%;" alt="" />
+
+                                            @break
+                                        @case('Exit Box Maintained')
+                                        @case('Exit Box Non Maintained')
+
+
+                                            <img src="{{ asset('images') }}/Exit Light Icon.png" class="" style="width: 100%;" alt="" />
+
+                                            @break
+
+                                        @case('Hanging Exit Sign Maintained')
+                                        @case('Hanging Exit Sign Non Maintained')
+
+
+                                            <img src="{{ asset('images') }}/Hanging Exit Light Icon.png" class="" style="width: 100%;" alt="" />
+
+                                            @break
+                                        @default
+                                            <img src="{{ asset('images') }}/Home Icon.png" class="" style="width: 100%;" alt="" />
+                                            
+                                    @endswitch
+
+                                </div>
+                                <div style='width: 100% !important; text-align: laft !important; margin: auto;'>
+                                    <div class="font-weight-bold " >Type: {{$data['type']}}</div>
+                                    <div class="font-weight-bold " >Name: {{$data['name']}}</div>
+                                    <div class="font-weight-bold " >Serial: {{$key}}</div>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+
+
+                </div>
+                
+            </div>
+
+
+
+
+
+            
+        </div>
+        @endforeach
       </div>
       <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
       <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
