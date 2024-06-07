@@ -22,9 +22,9 @@
 
 <body class="c-app flex-row align-items-center">
 <div class="container">
-    <div class="row mb-3">
+    <div class="row mb-3 justify-content-center">
         <div class="col-6 d-flex justify-content-center">
-            <img width="200" src="{{ asset('images/logo-dark.png') }}" alt="Logo">
+            <img width="" src="{{ asset('images/logo-dark.png') }}" alt="Logo">
         </div>
         <div class="col-6 d-flex justify-content-center">
             <img width="200" src="{{ asset('images/ms.png') }}" alt="Logo">
