@@ -703,7 +703,11 @@ class HomeController extends Controller
         return view('settings', [
         ]);
     }
+    public function midlogin(){
 
+        return view('midlogin', [
+        ]);
+    }
     public function notifications(){
 
         return view('notifications', [

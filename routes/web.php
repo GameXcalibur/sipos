@@ -36,7 +36,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/notifications', 'HomeController@notifications')
         ->name('notifications');
-
+        Route::get('/choose-your-location', 'HomeController@midlogin')
+        ->name('midlogin');
         Route::get('/schedules', 'HomeController@schedules')
         ->name('schedules');
         Route::get('/device_reports', 'HomeController@device_reports')
