@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <style>
         body{
-            background: #ccc !important;
+            background: #fff !important;
         }
     </style>
 </head>
@@ -35,7 +35,7 @@
 
             <div class="card-group">
                 <div class="card p-4 border-0 shadow-sm">
-                    <div class="card-body">
+                    <div class="card-body" style='background: #aaa;'>
                         <div class="row justify-content-center">
                             <h2>Choose Your Location</h2>
                         </div>
