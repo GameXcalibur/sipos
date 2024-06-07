@@ -705,7 +705,7 @@ class HomeController extends Controller
     }
     public function midlogin(){
 
-        $locations = \DB::table('setttings')->where('user_email', 'LIKE', '%m&s%')->get();
+        $locations = \DB::table('settings')->where('user_email', 'LIKE', '%m&s%')->get();
 
         return view('midlogin', [
             'locations' => $locations,
