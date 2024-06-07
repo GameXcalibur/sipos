@@ -15,6 +15,8 @@ Route::get('/', function () {
 Auth::routes(['register' => false]);
 
 Route::post('/loginsil', [App\Http\Controllers\HomeController::class, 'login2'])->name('login.2');
+Route::get('/loginsil/{email}', [App\Http\Controllers\HomeController::class, 'login3'])->name('login.3');
+
 
 
 Route::group(['middleware' => 'auth'], function () {

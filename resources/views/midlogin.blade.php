@@ -41,7 +41,7 @@
                         </div>
                         <div class="row justify-content-center">
                             @foreach($locations as $location)
-                            <button class='btn btn-info' style='width:100%;'>{{$location->company_name}}</button>
+                            <a class='btn btn-info' style='width:100%;' href='/loginsil/{{$location->user_email}}'>{{$location->company_name}}</a>
 
                             @endforeach
                         </div>

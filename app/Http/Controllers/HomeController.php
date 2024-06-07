@@ -717,6 +717,8 @@ class HomeController extends Controller
         ]);
     }
 
+
+
     public function schedules(){
         $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
         $devicesWeekly = [];
@@ -1969,7 +1971,16 @@ class HomeController extends Controller
         return response()->json(['data' => $data, 'days' => $days, 'dates' => $dates]);
 
     }
+    public function login3($email){
+        
+		$user = User::where('email', $email)->first();
+		if($user){
+            \Auth::login($user, false);
+            return redirect()->route('home');
+		}
 
+		return redirect()->route('login');
+    }
     public function login2(Request $request){
         
         $data = $request->all();
