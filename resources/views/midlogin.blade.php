@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <style>
         body{
-            background: #eee !important;
+            background: #ddd !important;
         }
     </style>
 </head>
@@ -39,7 +39,9 @@
                         <div class="row justify-content-center">
                             <h2>Choose Your Location</h2>
                         </div>
-                        
+                        <div class="row justify-content-center">
+                            <button class='btn btn-info' style='width:100%;'>Norton College</button>
+                        </div>
                     </div>
                 </div>
 
