@@ -1976,6 +1976,9 @@ class HomeController extends Controller
 		$user = User::where('email', $email)->first();
 		if($user){
             \Auth::login($user, false);
+            if($user->email == 'm&s_admin@silux.co.uk')
+                return redirect()->route('midlogin');
+
             return redirect()->route('home');
 		}
 
