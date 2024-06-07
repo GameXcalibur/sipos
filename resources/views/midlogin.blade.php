@@ -23,10 +23,10 @@
 <body class="c-app flex-row align-items-center">
 <div class="container">
     <div class="row mb-3 justify-content-center">
-        <div class="col-6 d-flex justify-content-center">
+        <div class="col-3 d-flex justify-content-center">
             <img width="300" src="{{ asset('images/logo-dark.png') }}" alt="Logo">
         </div>
-        <div class="col-6 d-flex justify-content-center">
+        <div class="col-3 d-flex justify-content-center">
             <img width="200" src="{{ asset('images/ms.png') }}" alt="Logo">
         </div>
     </div>
@@ -36,6 +36,9 @@
             <div class="card-group">
                 <div class="card p-4 border-0 shadow-sm">
                     <div class="card-body">
+                        <div class="row justify-content-center">
+                            <h2>Choose Your Location</h2>
+                        </div>
                         
                     </div>
                 </div>
