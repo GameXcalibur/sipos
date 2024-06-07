@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <style>
         body{
-            background: #ddd !important;
+            background: #ccc !important;
         }
     </style>
 </head>
@@ -40,7 +40,10 @@
                             <h2>Choose Your Location</h2>
                         </div>
                         <div class="row justify-content-center">
-                            <button class='btn btn-info' style='width:100%;'>Norton College</button>
+                            @foreach($locations as $location)
+                            <button class='btn btn-info' style='width:100%;'>{{$location->company_name}}</button>
+
+                            @endforeach
                         </div>
                     </div>
                 </div>
