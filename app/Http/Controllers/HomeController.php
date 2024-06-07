@@ -788,6 +788,74 @@ class HomeController extends Controller
                     case '2':
                         if(!array_key_exists($device->serial_no, $finalList['monthly']))
                             $finalList['monthly'][$device->serial_no] = [];
+
+                        $day = '';
+                        $week = '';
+
+
+                        switch($schedule->pSchedDays){
+                            case 2:
+                                $day = 'Mondays';
+                                break;
+                            case 4:
+                                $day = 'Tuesdays';
+
+                                break;
+                            case 8:
+                                $day = 'Wednesdays';
+
+                                break;
+                            case 16:
+                                $day = 'Thursdays';
+
+                                break;
+                            case 32:
+                                $day = 'Fridays';
+
+                                break;
+                            case 64:
+                                $day = 'Saturdays';
+
+                                break;
+                            case 128:
+                                $day = 'Sundays';
+
+                                break;
+                        }
+
+                        switch($schedule->pSchedDays){
+                            case 2:
+                                $day = 'Mondays';
+                                break;
+                            case 4:
+                                $day = 'Tuesdays';
+
+                                break;
+                            case 8:
+                                $day = 'Wednesdays';
+
+                                break;
+                            case 16:
+                                $day = 'Thursdays';
+
+                                break;
+                            case 32:
+                                $day = 'Fridays';
+
+                                break;
+                            case 64:
+                                $day = 'Saturdays';
+
+                                break;
+                            case 128:
+                                $day = 'Sundays';
+
+                                break;
+                        }
+                        $min = $schedule->pSchedMin;
+                        if(strlen($min) != 2){
+                            $min = '0'.$min;
+                        }
                         array_push($finalList['monthly'][$device->serial_no], $tmp);
                         break;
                     case '3':
