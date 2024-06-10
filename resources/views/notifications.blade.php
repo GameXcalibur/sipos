@@ -39,27 +39,27 @@
         <div class="col-md-8">
         <div class="row" >
 
-<input type='email' name='email' placeholder='' style='width: 80%;'></input>
+<input type='email' name='email' placeholder='' style='width: 80%;' class="form-control"></input>
 
 </div>
 <hr>
 <div class="row">
 
-<input type='email' name='email' placeholder='' style='width: 80%;'></input>
-
-</div>
-<hr>
-
-<div class="row">
-
-<input type='email' name='email' placeholder='' style='width: 80%;'></input>
+<input type='email' name='email' placeholder='' style='width: 80%;' class="form-control"></input>
 
 </div>
 <hr>
 
 <div class="row">
 
-<input type='email' name='email' placeholder='' style='width: 80%;'></input>
+<input type='email' name='email' placeholder='' style='width: 80%;' class="form-control"></input>
+
+</div>
+<hr>
+
+<div class="row">
+
+<input type='email' name='email' placeholder='' style='width: 80%;' class="form-control"></input>
 
 </div>
 <hr>
@@ -69,7 +69,7 @@
 
         <div class="row" >
 
-<select style='width: 100%;'>
+<select style='width: 100%;' class="form-control">
     <option>Once / Day</option>
     <option>Once / Week</option>
     <option>Once / Month</option>
@@ -81,7 +81,7 @@
 <hr>
 <div class="row" >
 
-<select style='width: 100%;'>
+<select style='width: 100%;' class="form-control">
 <option>Once / Day</option>
 <option>Once / Week</option>
 <option>Once / Month</option>
@@ -93,7 +93,7 @@
 <hr>
 <div class="row" >
 
-<select style='width: 100%;'>
+<select style='width: 100%;' class="form-control" >
 <option>Once / Day</option>
 <option>Once / Week</option>
 <option>Once / Month</option>
@@ -105,7 +105,7 @@
 <hr>
 <div class="row" >
 
-<select style='width: 100%;'>
+<select style='width: 100%;' class="form-control">
 <option>Once / Day</option>
 <option>Once / Week</option>
 <option>Once / Month</option>
