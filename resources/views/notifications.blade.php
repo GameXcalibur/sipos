@@ -11,7 +11,7 @@
 @section('content')
 <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
 
-    <div class="container-fluid">
+<div class="container-fluid">
        
 
     <div class="row">
@@ -77,9 +77,6 @@
         <p>*These notifications will alert you to any problems found on the netowork, and will be emailed to the respective email addresses</p>
     </div>
 
-    </div>
-    </div>
-    </div>
 
 
 @endsection
