@@ -22,13 +22,14 @@
 
 <body class="c-app flex-row align-items-center">
 <div class="container">
-    <div class="row mb-3 justify-content-center">
+    <div class="row justify-content-center">
         <div class="col-3 d-flex justify-content-center">
-            <img width="300" src="{{ asset('images/logo-dark.png') }}" alt="Logo">
+            <img width="200" src="{{ asset('images/ms1.png') }}" alt="Logo">
         </div>
         <div class="col-3 d-flex justify-content-center">
-            <img width="250" src="{{ asset('images/ms1.png') }}" alt="Logo">
+            <img width="300" height='170' src="{{ asset('images/logo-dark.png') }}" alt="Logo">
         </div>
+
     </div>
     <div class="row justify-content-center">
         <div class="{{ Route::has('register') ? 'col-md-8' : 'col-md-5' }}">
