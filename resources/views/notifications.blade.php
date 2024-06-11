@@ -36,86 +36,36 @@
 
     </div>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
         <div class="row" >
+            <div class="col-md-8" >
 
-<input type='email' name='email' placeholder='' style='width: 80%;' class="form-control"></input>
+                <input type='email' name='email' placeholder='' style='width: 80%;' class="form-control"></input>
 
-</div>
-<hr>
-<div class="row">
+            </div>
+            <div class="col-md-4" >
 
-<input type='email' name='email' placeholder='' style='width: 80%;' class="form-control"></input>
+                <select style='width: 100%;' class="form-control">
+                    <option>Once / Day</option>
+                    <option>Once / Week</option>
+                    <option>Once / Month</option>
+                    <option>Once / Year</option>
 
-</div>
-<hr>
-
-<div class="row">
-
-<input type='email' name='email' placeholder='' style='width: 80%;' class="form-control"></input>
-
-</div>
-<hr>
-
-<div class="row">
-
-<input type='email' name='email' placeholder='' style='width: 80%;' class="form-control"></input>
-
-</div>
-<hr>
-        </div>
-        <div class="col-md-4">
-
-
-        <div class="row" >
-
-<select style='width: 100%;' class="form-control">
-    <option>Once / Day</option>
-    <option>Once / Week</option>
-    <option>Once / Month</option>
-    <option>Once / Year</option>
-
-</select>
-
-</div>
-<hr>
-<div class="row" >
-
-<select style='width: 100%;' class="form-control">
-<option>Once / Day</option>
-<option>Once / Week</option>
-<option>Once / Month</option>
-<option>Once / Year</option>
-
-</select>
-
-</div>
-<hr>
-<div class="row" >
-
-<select style='width: 100%;' class="form-control" >
-<option>Once / Day</option>
-<option>Once / Week</option>
-<option>Once / Month</option>
-<option>Once / Year</option>
-
-</select>
-
-</div>
-<hr>
-<div class="row" >
-
-<select style='width: 100%;' class="form-control">
-<option>Once / Day</option>
-<option>Once / Week</option>
-<option>Once / Month</option>
-<option>Once / Year</option>
-
-</select>
-
-</div>
+                </select>
+            </div>
         </div>
     </div>
+
+    <hr>
+
+
+
+
+
+</div>
+<hr>
+
+
 
     <div class="row" >
         <button class='btn btn-success' style='width:100%;'>SUBMIT</button>
