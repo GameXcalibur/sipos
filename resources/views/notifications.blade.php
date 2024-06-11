@@ -59,6 +59,77 @@
 
     <hr>
 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row" >
+                <div class="col-md-8" >
+
+                    <input type='email' name='email' placeholder='' style='width: 80%;' class="form-control"></input>
+
+                </div>
+                <div class="col-md-4" >
+
+                    <select style='width: 100%;' class="form-control">
+                        <option>Once / Day</option>
+                        <option>Once / Week</option>
+                        <option>Once / Month</option>
+                        <option>Once / Year</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row" >
+                <div class="col-md-8" >
+
+                    <input type='email' name='email' placeholder='' style='width: 80%;' class="form-control"></input>
+
+                </div>
+                <div class="col-md-4" >
+
+                    <select style='width: 100%;' class="form-control">
+                        <option>Once / Day</option>
+                        <option>Once / Week</option>
+                        <option>Once / Month</option>
+                        <option>Once / Year</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row" >
+                <div class="col-md-8" >
+
+                    <input type='email' name='email' placeholder='' style='width: 80%;' class="form-control"></input>
+
+                </div>
+                <div class="col-md-4" >
+
+                    <select style='width: 100%;' class="form-control">
+                        <option>Once / Day</option>
+                        <option>Once / Week</option>
+                        <option>Once / Month</option>
+                        <option>Once / Year</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
 
 
 
