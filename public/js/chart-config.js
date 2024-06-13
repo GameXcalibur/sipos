@@ -50,6 +50,9 @@ $(document).ready(function () {
 
   var overviewChart1 = document.getElementById('testChart');
   $.get('/current-month/test-data', function (response) {
+    document.getElementById('numAllTestsP').innerHTML = response.passed;
+    document.getElementById('numAllTestsF').innerHTML = response.failed;
+
     var currentMonthChart1 = new Chart(overviewChart1, {
       type: 'doughnut',
       data: {
@@ -66,6 +69,8 @@ $(document).ready(function () {
 
   var overviewChart2 = document.getElementById('wtestChart');
   $.get('/current-month/test-dataw', function (response) {
+    document.getElementById('weeklyTestsP').innerHTML = response.passed;
+    document.getElementById('weeklyTestsF').innerHTML = response.failed;
     var currentMonthChart2 = new Chart(overviewChart2, {
       type: 'doughnut',
       data: {
@@ -81,6 +86,8 @@ $(document).ready(function () {
 
   var overviewChart3 = document.getElementById('mtestChart');
   $.get('/current-month/test-datam', function (response) {
+    document.getElementById('monthlyTestsP').innerHTML = response.passed;
+    document.getElementById('monthlyTestsF').innerHTML = response.failed;
     var currentMonthChart3 = new Chart(overviewChart3, {
       type: 'doughnut',
       data: {
@@ -96,6 +103,8 @@ $(document).ready(function () {
 
   var overviewChart4 = document.getElementById('bitestChart');
   $.get('/current-month/test-databi', function (response) {
+    document.getElementById('bannualTestsP').innerHTML = response.passed;
+    document.getElementById('bannualTestsF').innerHTML = response.failed;
     var currentMonthChart4 = new Chart(overviewChart4, {
       type: 'doughnut',
       data: {
@@ -112,6 +121,8 @@ $(document).ready(function () {
 
   var overviewChart5 = document.getElementById('antestChart');
   $.get('/current-month/test-dataan', function (response) {
+    document.getElementById('annualTestsP').innerHTML = response.passed;
+    document.getElementById('annualTestsF').innerHTML = response.failed;
     var currentMonthChart5 = new Chart(overviewChart5, {
       type: 'doughnut',
       data: {

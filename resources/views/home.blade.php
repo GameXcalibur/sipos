@@ -68,7 +68,22 @@
             <div class="col-lg-12">
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-header">
-                        All Tests Run
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <b>All Tests Run</b>
+
+                            </div>
+                            <div class="col-lg-4 justify-content-center">
+                                <span style='text-align: center; display: block; width: 100%;'>Passed: <b id='numAllTestsP'>-</b></span>
+
+                            </div>
+                            <div class="col-lg-4 justify-content-center">
+                                <span style='text-align: center; display: block; width: 100%;'>Failed: <b id='numAllTestsF'>-</b></span>
+
+
+                            </div>
+                        </div>
+
                     </div>
                     <div class="card-body d-flex justify-content-center">
                         <div class="chart-container" style="position: relative; height:auto; width:280px">
@@ -87,7 +102,21 @@
 <div class="col-lg-6">
     <div class="card border-0 shadow-sm h-100">
         <div class="card-header">
-            Weekly Tests Run
+            <div class="row">
+                <div class="col-lg-4">
+                    <b>Weekly Tests Run</b>
+
+                </div>
+                <div class="col-lg-4 justify-content-center">
+                    <span style='text-align: center; display: block; width: 100%;'>Passed: <b id='weeklyTestsP'>-</b></span>
+
+                </div>
+                <div class="col-lg-4 justify-content-center">
+                    <span style='text-align: center; display: block; width: 100%;'>Failed: <b id='weeklyTestsF'>-</b></span>
+
+
+                </div>
+            </div>
         </div>
         <div class="card-body d-flex justify-content-center">
             <div class="chart-container" style="position: relative; height:auto; width:280px">
@@ -100,7 +129,21 @@
 <div class="col-lg-6">
     <div class="card border-0 shadow-sm h-100">
         <div class="card-header">
-            Monthly Tests Run
+            <div class="row">
+                <div class="col-lg-4">
+                    <b>Monthly Tests Run</b>
+
+                </div>
+                <div class="col-lg-4 justify-content-center">
+                    <span style='text-align: center; display: block; width: 100%;'>Passed: <b id='monthlyTestsP'>-</b></span>
+
+                </div>
+                <div class="col-lg-4 justify-content-center">
+                    <span style='text-align: center; display: block; width: 100%;'>Failed: <b id='monthlyTestsF'>-</b></span>
+
+
+                </div>
+            </div>
         </div>
         <div class="card-body d-flex justify-content-center">
             <div class="chart-container" style="position: relative; height:auto; width:280px">
@@ -116,7 +159,21 @@
 <div class="col-lg-6">
     <div class="card border-0 shadow-sm h-100">
         <div class="card-header">
-            Bi-Annual Tests Run
+            <div class="row">
+                <div class="col-lg-4">
+                    <b>Bi-Annual Tests Run</b>
+
+                </div>
+                <div class="col-lg-4 justify-content-center">
+                    <span style='text-align: center; display: block; width: 100%;'>Passed: <b id='bannualTestsP'>-</b></span>
+
+                </div>
+                <div class="col-lg-4 justify-content-center">
+                    <span style='text-align: center; display: block; width: 100%;'>Failed: <b id='bannualTestsF'>-</b></span>
+
+
+                </div>
+            </div>
         </div>
         <div class="card-body d-flex justify-content-center">
             <div class="chart-container" style="position: relative; height:auto; width:280px">
@@ -129,7 +186,21 @@
 <div class="col-lg-6">
     <div class="card border-0 shadow-sm h-100">
         <div class="card-header">
-            Annual Tests Run
+            <div class="row">
+                <div class="col-lg-4">
+                    <b>Annual Tests Run</b>
+
+                </div>
+                <div class="col-lg-4 justify-content-center">
+                    <span style='text-align: center; display: block; width: 100%;'>Passed: <b id='annualTestsP'>-</b></span>
+
+                </div>
+                <div class="col-lg-4 justify-content-center">
+                    <span style='text-align: center; display: block; width: 100%;'>Failed: <b id='annualTestsF'>-</b></span>
+
+
+                </div>
+            </div>
         </div>
         <div class="card-body d-flex justify-content-center">
             <div class="chart-container" style="position: relative; height:auto; width:280px">
