@@ -46,9 +46,10 @@
                     <i class="c-sidebar-nav-icon bi bi-sliders" style="line-height: 1;"></i> System Settings
                 </a>
             </li>
-
+            @if(auth()->user()->email == 'wayne@siluxcontrol.com')
             <li class="c-sidebar-nav-item">
                 <a class="c-sidebar-nav-link {{ request()->routeIs('vcm*') ? 'c-active' : '' }}" href="{{ route('vcm') }}">
                     <i class="c-sidebar-nav-icon bi bi-sliders" style="line-height: 1;"></i> VCM
                 </a>
             </li>
+            @endif
