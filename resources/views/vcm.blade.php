@@ -42,7 +42,6 @@
 
         window.open("/php/pull.php?h="+hubSerial, '_blank').focus();
 
-    });
     }
     </script>
 @endpush
