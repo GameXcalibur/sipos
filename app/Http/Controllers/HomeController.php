@@ -716,9 +716,26 @@ class HomeController extends Controller
         return view('notifications', [
         ]);
     }
+    //////////////////////////////
 
 
 
+    ///////////////////////////////
+    public function add_sched(){
+
+        return view('add_schedule', [
+        ]);
+    }
+    
+    public function vcm(){
+
+        return view('vcm', [
+        ]);
+    }
+    public function vcmGet($hub){
+
+        
+    }
     public function schedules(){
         $hubsForAccount = \DB::select('SELECT * FROM hubPermissions WHERE email = "'.\Auth::user()->email.'"');
         $devicesWeekly = [];

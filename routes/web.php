@@ -23,10 +23,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')
         ->name('home');
 
-
+        
         Route::get('/createtest', 'HomeController@createTest')
         ->name('create.test');
+        Route::get('/schedules/add', 'HomeController@add_sched')
+        ->name('add.schedule');
 
+        Route::get('/vcm', 'HomeController@vcm')
+        ->name('vcm');
+
+        Route::get('/vcm/{hub}', 'HomeController@vcmGet')
+        ->name('vcm.get');
     Route::get('/hubs', 'HomeController@hubs')
         ->name('hubs');
 
