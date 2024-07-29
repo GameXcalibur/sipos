@@ -728,7 +728,7 @@ function writetoTestHistory($dateS,$deviceS,$s1,$s2,$testR,$testT,$dateAsS,$hubS
       $dateAsSControl = $dateAsS;
       $sql15 = "SELECT * from proEM_Schedules WHERE pSchedDSerial='$deviceS' AND pSchedIdx='$testIdx'";
       $result15 = $conn->query($sql15);
-var_dump($sql15);
+//var_dump($sql15);
       $dayOfWeek = 0;
   
       if($result15->num_rows > 0){
@@ -938,7 +938,7 @@ $testInd = 1;
 
       $total = $val1+$val2+$val3+$val4+$val5+$val6;
       //if($val1 < 10 && $val2 < 10 && $val3 < 10 && $val4 < 10 && $val5 < 10 && $val6 < 10 ){
-        if($type == '046' && !array_key_exists($serial, $devDone)){
+        if($type == '046'){
           $devDone[$serial] = 1;
           $res1 .= $timeStamp.' - Serial: '.$serial.' ('.$name.') - Level: '.$level.' - Code: '.$code.' - Val 1: '.$val1.' - Val 2: '.$val2.' - Val 3: '.$val3.' - Val 4: '.$val4.' - Val 5: '.$val5.' - Val 6: '.$val6.'\r\n';
 
