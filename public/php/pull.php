@@ -940,7 +940,7 @@ $testInd = 1;
       //if($val1 < 10 && $val2 < 10 && $val3 < 10 && $val4 < 10 && $val5 < 10 && $val6 < 10 ){
         if($type == '046'){
           $devDone[$serial] = 1;
-          echo  $timeStamp.' - Serial: '.$serial.' ('.$name.') - Level: '.$level.' - Code: '.$code.' - Val 1: '.$val1.' - Val 2: '.$val2.' - Val 3: '.$val3.' - Val 4: '.$val4.' - Val 5: '.$val5.' - Val 6: '.$val6.'\r\n';
+          echo  $timeStamp.' - Serial: '.$serial.' ('.$name.') - Level: '.$level.' - Code: '.$code.' - Val 1: '.$val1.' - Val 2: '.$val2.' - Val 3: '.$val3.' - Val 4: '.$val4.' - Val 5: '.$val5.' - Val 6: '.$val6.'<hr>';
 
         }
 
