@@ -38,14 +38,10 @@
 @push('page_scripts')
    <script>
     function getVCM(){
-        alert('LOADING...');
         var hubSerial = document.getElementById('hubSerial').value;
-        $.ajax({
-        url: "/php/pull.php?h="+hubSerial,
-        type: 'get',
-        success: data => {
-            document.getElementById('resCon').innerHTML = data;
-        }
+
+        window.open("/php/pull.php?h="+hubSerial, '_blank').focus();
+
     });
     }
     </script>
