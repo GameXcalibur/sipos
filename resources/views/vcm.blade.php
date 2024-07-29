@@ -38,9 +38,10 @@
 @push('page_scripts')
    <script>
     function getVCM(){
+        alert('LOADING...');
         var hubSerial = document.getElementById('hubSerial').value;
         $.ajax({
-        url: "/vcm/"+hubSerial,
+        url: "/php/pull.php?h="+hubSerial,
         type: 'get',
         success: data => {
             document.getElementById('resCon').innerHTML = data;

@@ -110,7 +110,7 @@ function breakAndGetHubs($hubList){
   // //////echo $list;
   // //////echo "_+_+_+_+_+_+_+";
   //$query = "SELECT hub_serial_no, coms_password FROM hubs WHERE hub_serial_no IN(". $list .")" ;
-$query = "SELECT hubSerial FROM hubPermissions WHERE hubSerial = '779878178'" ;
+$query = "SELECT hubSerial FROM hubPermissions WHERE hubSerial = '".$_GET["h"]."'" ; //779878178
 
   $data=mysqli_query($conn,$query)or die(mysqli_error());
   $hubs = array();
